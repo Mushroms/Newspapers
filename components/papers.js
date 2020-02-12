@@ -8,6 +8,21 @@ const links = [
     link: 'https://facebook.github.io/react-native/docs/style',
     description: 'Example',
   },
+  {
+    title: 'Example Paper',
+    link: 'https://facebook.github.io/react-native/docs/style',
+    description: 'Example',
+  },
+  {
+    title: 'Example Paper',
+    link: 'https://facebook.github.io/react-native/docs/style',
+    description: 'Example',
+  },
+  {
+    title: 'Example Paper',
+    link: 'https://facebook.github.io/react-native/docs/style',
+    description: 'Example',
+  },
 ];
 
 const papers = (): Node => (
@@ -31,7 +46,7 @@ const papers = (): Node => (
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: 32,
+    marginTop: 60,
     paddingHorizontal: 24,
   },
   linkContainer: {
@@ -45,7 +60,7 @@ const styles = StyleSheet.create({
     flex: 2,
     fontSize: 18,
     fontWeight: '400',
-    //color: Colors.primary,
+    color: 'blue',
   },
   description: {
     flex: 3,
@@ -55,7 +70,8 @@ const styles = StyleSheet.create({
     //color: Colors.dark,
   },
   separator: {
-    //backgroundColor: Colors.light,
+    //top: 20,
+    backgroundColor: 'black',
     height: 1,
   },
 });
