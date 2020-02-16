@@ -1,11 +1,4 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow
- */
-import React from 'react';
+import React, {Component} from 'react';
 import {
   SafeAreaView,
   StyleSheet,
@@ -14,16 +7,37 @@ import {
   Text,
   StatusBar,
 } from 'react-native';
+//import {StyleSheet} from 'react-native';
+
+import 'react-native-gesture-handler';
 import Papers from './components/papers';
+import PapersItem from './components/papersItem';
+import {NavigationContainer} from '@react-navigation/native';
+import {createStackNavigator} from '@react-navigation/stack';
 
-const App: () => React$Node = () => {
+const Stack = createStackNavigator();
+
+function MyStack() {
   return (
-    <>
-      <Papers />
-    </>
+    <Stack.Navigator>
+      <Stack.Screen name="Papers" component={Papers} />
+      <Stack.Screen name="PapersItem" component={PapersItem} />
+    </Stack.Navigator>
   );
-};
+}
 
-const styles = StyleSheet.create({});
+export default function App() {
+  return (
+    <NavigationContainer>
+      <MyStack />
+    </NavigationContainer>
+  );
+}
 
-export default App;
+// const styles = StyleSheet.create({});
+
+// export default App;
+
+//const styles = StyleSheet.create({});
+
+//export default App;

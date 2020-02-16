@@ -1,28 +1,29 @@
-import React from 'react';
+//import type {Node} from 'react';
 import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
-import {NavigationContainer} from '@react-navigation/native';
-import {createStackNavigator} from '@react-navigation/stack';
+import React from 'react';
 
-// class Papers extends React.Component {
+// class PapersItem extends React.Component {
 //   constructor(props) {
 //     super(props);
-// }
-// render() {
-function Papers({navigation}) {
+//   }
+//   render() {
+function PapersItem({navigation}) {
+  // const {navigate} = this.props.navigation;
   return (
     <View style={styles.container}>
       <View style={styles.separator} />
       <TouchableOpacity
         accessibilityRole={'button'}
-        onPress={() => navigation.navigate('PapersItem')}
+        onPress={() => navigation.navigate('papersItem')}
         style={styles.linkContainer}>
-        <Text style={styles.link}>Example Paper</Text>
+        <Text style={styles.link}>Example PaperItem</Text>
+        <Text style={styles.description}>Test 1</Text>
       </TouchableOpacity>
     </View>
   );
 }
-//}
-//}
+//   }
+// }
 const styles = StyleSheet.create({
   container: {
     marginTop: 60,
@@ -37,8 +38,6 @@ const styles = StyleSheet.create({
   },
   link: {
     flex: 2,
-    justifyContent: 'center',
-    marginTop: 10,
     fontSize: 20,
     fontWeight: '400',
     color: 'blue',
@@ -59,6 +58,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Papers;
-
-//<Text style={styles.description}>Test 1'</Text>;
+export default PapersItem;
