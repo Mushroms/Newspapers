@@ -25,19 +25,19 @@ function MyStack() {
       <Stack.Screen
         name="Articles"
         component={Articles}
-        color="white"
+        color="#F9FBE7"
         options={{
           headerTransparent: true,
-          headerBackground: () => <View tint="white" intensity={100} />,
+          headerBackground: () => <View tint="#F9FBE7" intensity={100} />,
         }}
       />
       <Stack.Screen
         name="Post"
         component={Post}
-        color="white"
+        color="#F9FBE7"
         options={{
           headerTransparent: true,
-          headerBackground: () => <View tint="white" intensity={100} />,
+          headerBackground: () => <View tint="#F9FBE7" intensity={100} />,
         }}
       />
     </Stack.Navigator>

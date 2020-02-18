@@ -15,8 +15,7 @@ function Articles({navigation}) {
           accessibilityRole={'button'}
           onPress={() => navigation.navigate('Post')}
           style={styles.linkContainer}>
-          <Text style={styles.link}>Example PaperItem</Text>
-          <Text style={styles.description}>Test 1</Text>
+          <Text style={styles.link}>Papers Article</Text>
         </TouchableOpacity>
       </View>
     </ImageBackground>
@@ -40,19 +39,19 @@ const styles = StyleSheet.create({
     marginTop: 20,
     fontSize: 20,
     fontWeight: '400',
-    color: 'white',
+    color: '#F0F4C3',
     fontFamily: 'Courier-Bold',
   },
   description: {
     flex: 3,
-    color: 'white',
+    color: '#F0F4C3',
     paddingVertical: 16,
     fontWeight: '400',
     fontSize: 18,
     fontFamily: 'Courier-Bold',
   },
   separator: {
-    backgroundColor: 'white',
+    backgroundColor: '#F9FBE7',
     height: 1,
   },
 });
