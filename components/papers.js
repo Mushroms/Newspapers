@@ -3,12 +3,6 @@ import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 import {ImageBackground} from 'react-native';
 import PaperBackImage from '../src/black_paper_@2X.png';
 
-// class Papers extends React.Component {
-//   constructor(props) {
-//     super(props);
-// }
-// render() {
-
 function Papers({navigation}) {
   return (
     <ImageBackground
@@ -18,7 +12,7 @@ function Papers({navigation}) {
         <View style={styles.separator} />
         <TouchableOpacity
           accessibilityRole={'button'}
-          onPress={() => navigation.navigate('PapersItem')}
+          onPress={() => navigation.navigate('Articles')}
           style={styles.linkContainer}>
           <Text style={styles.link}>Example Paper</Text>
         </TouchableOpacity>
@@ -26,8 +20,7 @@ function Papers({navigation}) {
     </ImageBackground>
   );
 }
-//}
-//}
+
 const styles = StyleSheet.create({
   container: {
     marginTop: 90,
@@ -43,7 +36,7 @@ const styles = StyleSheet.create({
   link: {
     flex: 2,
     justifyContent: 'center',
-    marginTop: 10,
+    marginTop: 20,
     fontSize: 20,
     fontWeight: '400',
     color: 'white',
@@ -55,7 +48,6 @@ const styles = StyleSheet.create({
     fontWeight: '400',
     fontSize: 18,
     fontFamily: 'Courier-Bold',
-    //color: Colors.dark,
   },
   separator: {
     //top: 20,
@@ -65,5 +57,3 @@ const styles = StyleSheet.create({
 });
 
 export default Papers;
-
-//<Text style={styles.description}>Test 1'</Text>;

@@ -4,13 +4,7 @@ import React from 'react';
 import {ImageBackground} from 'react-native';
 import PaperBackImage from '../src/black_paper_@2X.png';
 
-// class PapersItem extends React.Component {
-//   constructor(props) {
-//     super(props);
-//   }
-//   render() {
-function PapersItem({navigation}) {
-  // const {navigate} = this.props.navigation;
+function Articles({navigation}) {
   return (
     <ImageBackground
       source={PaperBackImage}
@@ -19,7 +13,7 @@ function PapersItem({navigation}) {
         <View style={styles.separator} />
         <TouchableOpacity
           accessibilityRole={'button'}
-          onPress={() => navigation.navigate('papersItem')}
+          onPress={() => navigation.navigate('Post')}
           style={styles.linkContainer}>
           <Text style={styles.link}>Example PaperItem</Text>
           <Text style={styles.description}>Test 1</Text>
@@ -28,8 +22,7 @@ function PapersItem({navigation}) {
     </ImageBackground>
   );
 }
-//   }
-// }
+
 const styles = StyleSheet.create({
   container: {
     marginTop: 90,
@@ -44,7 +37,7 @@ const styles = StyleSheet.create({
   },
   link: {
     flex: 2,
-    marginTop: 10,
+    marginTop: 20,
     fontSize: 20,
     fontWeight: '400',
     color: 'white',
@@ -57,13 +50,11 @@ const styles = StyleSheet.create({
     fontWeight: '400',
     fontSize: 18,
     fontFamily: 'Courier-Bold',
-    //color: Colors.dark,
   },
   separator: {
-    //top: 20,
     backgroundColor: 'white',
     height: 1,
   },
 });
 
-export default PapersItem;
+export default Articles;

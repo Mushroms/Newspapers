@@ -4,10 +4,11 @@ import {ImageBackground, View} from 'react-native';
 
 import 'react-native-gesture-handler';
 import Papers from './components/papers';
-import PapersItem from './components/papersItem';
+import Articles from './components/articles';
+import Post from './components/post';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
-import PaperBackImage from './src/black_paper_@2X.png';
+
 const Stack = createStackNavigator();
 
 function MyStack() {
@@ -18,28 +19,25 @@ function MyStack() {
         component={Papers}
         options={{
           headerTransparent: true,
-          headerBackground: () => (
-            <View
-              tint="wight"
-              intensity={100}
-              //style={StyleSheet.absoluteFill}
-            />
-          ),
+          headerBackground: () => <View tint="wight" intensity={100} />,
         }}
       />
       <Stack.Screen
-        name="PapersItem"
-        component={PapersItem}
+        name="Articles"
+        component={Articles}
         color="white"
         options={{
           headerTransparent: true,
-          headerBackground: () => (
-            <View
-              tint="white"
-              intensity={100}
-              //style={StyleSheet.absoluteFill}
-            />
-          ),
+          headerBackground: () => <View tint="white" intensity={100} />,
+        }}
+      />
+      <Stack.Screen
+        name="Post"
+        component={Post}
+        color="white"
+        options={{
+          headerTransparent: true,
+          headerBackground: () => <View tint="white" intensity={100} />,
         }}
       />
     </Stack.Navigator>
