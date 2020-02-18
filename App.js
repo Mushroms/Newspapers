@@ -19,7 +19,8 @@ function MyStack() {
         component={Papers}
         options={{
           headerTransparent: true,
-          headerBackground: () => <View tint="wight" intensity={100} />,
+
+          headerBackground: () => <View tint="#F0F4C3" intensity={100} />,
         }}
       />
       <Stack.Screen
@@ -28,6 +29,7 @@ function MyStack() {
         color="#F9FBE7"
         options={{
           headerTransparent: true,
+          headerTintColor: '#9E9D24',
           headerBackground: () => <View tint="#F9FBE7" intensity={100} />,
         }}
       />
@@ -37,6 +39,7 @@ function MyStack() {
         color="#F9FBE7"
         options={{
           headerTransparent: true,
+          headerTintColor: '#9E9D24',
           headerBackground: () => <View tint="#F9FBE7" intensity={100} />,
         }}
       />
