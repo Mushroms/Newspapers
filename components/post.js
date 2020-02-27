@@ -6,14 +6,10 @@ import {
   ScrollView,
 } from 'react-native';
 import React from 'react';
-import {ImageBackground} from 'react-native';
-import PaperBackImage from '../src/black_paper_@2X.png';
 
 function Post({navigation}) {
   return (
-    <ImageBackground
-      source={PaperBackImage}
-      style={{width: '100%', height: '100%'}}>
+    <View style={{backgroundColor: '#6f7d98', flex: 1}}>
       <View style={styles.container}>
         <View style={styles.separator} />
         <ScrollView>
@@ -28,7 +24,7 @@ function Post({navigation}) {
           </Text>
         </ScrollView>
       </View>
-    </ImageBackground>
+    </View>
   );
 }
 
@@ -48,7 +44,7 @@ const styles = StyleSheet.create({
     marginTop: 20,
     fontSize: 20,
     fontWeight: '400',
-    color: '#F0F4C3',
+    color: '#F9FBE7',
     fontFamily: 'Courier-Bold',
   },
 });

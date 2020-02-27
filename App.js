@@ -1,7 +1,5 @@
 import React, {Component} from 'react';
-import {ImageBackground, View} from 'react-native';
-//import {StyleSheet} from 'react-native';
-
+import {View} from 'react-native';
 import 'react-native-gesture-handler';
 import Papers from './components/papers';
 import Articles from './components/articles';
@@ -18,18 +16,22 @@ function MyStack() {
         name="Papers"
         component={Papers}
         options={{
+          headerStyle: {
+            backgroundColor: '#6f7d98',
+          },
           headerTransparent: true,
-
-          headerBackground: () => <View tint="#F0F4C3" intensity={100} />,
+          headerTintColor: '#a5c7f3',
+          headerBackground: () => <View tint="#F9FBE7" intensity={100} />,
         }}
       />
       <Stack.Screen
         name="Articles"
         component={Articles}
         color="#F9FBE7"
+        backgroundColor="#6f7d98"
         options={{
           headerTransparent: true,
-          headerTintColor: '#9E9D24',
+          headerTintColor: '#a5c7f3',
           headerBackground: () => <View tint="#F9FBE7" intensity={100} />,
         }}
       />
@@ -37,9 +39,10 @@ function MyStack() {
         name="Post"
         component={Post}
         color="#F9FBE7"
+        backgroundColor="#6f7d98"
         options={{
           headerTransparent: true,
-          headerTintColor: '#9E9D24',
+          headerTintColor: '#a5c7f3',
           headerBackground: () => <View tint="#F9FBE7" intensity={100} />,
         }}
       />
@@ -54,13 +57,3 @@ export default function App() {
     </NavigationContainer>
   );
 }
-
-// const styles = StyleSheet.create({
-//   background: 'PaperBackImage',
-// });
-
-// export default App;
-
-//const styles = StyleSheet.create({});
-
-//export default App;
