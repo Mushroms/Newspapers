@@ -1,6 +1,6 @@
 import React from 'react';
 import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
-
+import FetchRss from './fetchRss';
 function Papers({navigation}) {
   return (
     <View style={{backgroundColor: '#6f7d98', flex: 1}}>
@@ -10,7 +10,7 @@ function Papers({navigation}) {
           accessibilityRole={'button'}
           onPress={() => navigation.navigate('Articles')}
           style={styles.linkContainer}>
-          <Text style={styles.link}>Example Paper</Text>
+          <FetchRss />
         </TouchableOpacity>
       </View>
     </View>
@@ -56,3 +56,5 @@ const styles = StyleSheet.create({
 });
 
 export default Papers;
+
+//<Text style={styles.link}>Example Paper</Text>;
