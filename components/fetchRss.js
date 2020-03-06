@@ -14,7 +14,6 @@ export default class FetchRss extends React.Component {
     return fetch('https://www.vesti.ru/vesti.rss')
       .then(response => response.text())
       .then(responseDataXml => {
-        //console.log(responseDataXml);
         parseString(responseDataXml, (err, result) => {
           //console.log('Channel information:', result.rss.channel);
           //console.log('List all news:', result.rss.channel[0].item);

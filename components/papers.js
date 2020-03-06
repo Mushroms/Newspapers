@@ -1,22 +1,26 @@
 import React from 'react';
 import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 import FetchRss from './fetchRss';
-function Papers({navigation}) {
-  return (
-    <View style={{backgroundColor: '#6f7d98', flex: 1}}>
-      <View style={styles.container}>
-        <View style={styles.separator} />
-        <TouchableOpacity
-          accessibilityRole={'button'}
-          onPress={() => navigation.navigate('Articles')}
-          style={styles.linkContainer}>
-          <FetchRss />
-        </TouchableOpacity>
-      </View>
-    </View>
-  );
-}
 
+export default class Papers extends React.Component {
+  render() {
+    const navigation = this.props.navigation;
+    // let title = this.props.rss.map(function)
+    return (
+      <View style={{backgroundColor: '#6f7d98', flex: 1}}>
+        <View style={styles.container}>
+          <View style={styles.separator} />
+          <TouchableOpacity
+            accessibilityRole={'button'}
+            onPress={() => navigation.navigate('Articles')}
+            style={styles.linkContainer}>
+            <FetchRss />
+          </TouchableOpacity>
+        </View>
+      </View>
+    );
+  }
+}
 const styles = StyleSheet.create({
   container: {
     marginTop: 90,
@@ -55,6 +59,6 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Papers;
+// export default Papers;
 
 //<Text style={styles.link}>Example Paper</Text>;
