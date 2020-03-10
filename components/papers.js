@@ -5,7 +5,7 @@ import FetchRss from './fetchRss';
 export default class Papers extends React.Component {
   render() {
     const navigation = this.props.navigation;
-    // let title = this.props.rss.map(function)
+    console.warn('Props', this.props.rss);
     return (
       <View style={{backgroundColor: '#6f7d98', flex: 1}}>
         <View style={styles.container}>
@@ -14,7 +14,7 @@ export default class Papers extends React.Component {
             accessibilityRole={'button'}
             onPress={() => navigation.navigate('Articles')}
             style={styles.linkContainer}>
-            <FetchRss />
+            <Text>{this.props.rss}</Text>
           </TouchableOpacity>
         </View>
       </View>
