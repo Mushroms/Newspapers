@@ -6,7 +6,7 @@ import Articles from './components/articles';
 import Post from './components/post';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
-import {parseString} from 'react-native-xml2js';
+//import {parseString} from 'react-native-xml2js';
 
 const Stack = createStackNavigator();
 
@@ -14,7 +14,7 @@ export class MyStack extends Component {
   //this.props = this.props.rss.title;
 
   render() {
-    console.warn('PropsApp', this.props.rss.title);
+    //console.warn('PropsApp', this.props.rss.title);
     return (
       <Stack.Navigator>
         <Stack.Screen
@@ -58,41 +58,43 @@ export class MyStack extends Component {
 }
 
 export default class App extends Component {
-  constructor(props) {
-    super(props);
+  // constructor(props) {
+  //   super(props);
 
-    this.state = {
-      rss: {},
-    };
-  }
+  //   this.state = {
+  //     rss: {},
+  //   };
+  // }
 
-  getData() {
-    return fetch('https://www.vesti.ru/vesti.rss')
-      .then(response => response.text())
-      .then(responseDataXml => {
-        // eslint-disable-next-line handle-callback-err
-        parseString(responseDataXml, (err, result) => {
-          //console.log('Channel information:', result.rss.channel);
-          //console.log('List all news:', result.rss.channel[0]);
-          this.setState({
-            rss: result.rss.channel[0],
-          });
-        });
-      })
-      .catch(error => {
-        console.error(error);
-      });
-  }
+  // getData() {
+  //   return fetch('https://www.vesti.ru/vesti.rss')
+  //     .then(response => response.text())
+  //     .then(responseDataXml => {
+  //       // eslint-disable-next-line handle-callback-err
+  //       parseString(responseDataXml, (err, result) => {
+  //         //console.log('Channel information:', result.rss.channel);
+  //         //console.log('List all news:', result.rss.channel[0]);
+  //         this.setState({
+  //           rss: result.rss.channel[0],
+  //         });
+  //       });
+  //     })
+  //     .catch(error => {
+  //       console.error(error);
+  //     });
+  // }
 
-  componentDidMount() {
-    this.getData();
-  }
+  // componentDidMount() {
+  //   this.getData();
+  // }
 
   render() {
     return (
       <NavigationContainer>
-        <MyStack rss={this.state.rss} />
+        <MyStack />
       </NavigationContainer>
     );
   }
 }
+
+//rss={this.state.rss}

@@ -1,20 +1,53 @@
 import React from 'react';
 import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 import FetchRss from './fetchRss';
+import {parseString} from 'react-native-xml2js';
 
 export default class Papers extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      rss: {},
+    };
+  }
+
+  getData() {
+    return fetch('https://www.vesti.ru/vesti.rss')
+      .then(response => response.text())
+      .then(responseDataXml => {
+        // eslint-disable-next-line handle-callback-err
+        parseString(responseDataXml, (err, result) => {
+          //console.log('Channel information:', result.rss.channel);
+          //console.log('List all news:', result.rss.channel[0]);
+          this.setState({
+            rss: result.rss.channel[0],
+          });
+        });
+      })
+      .catch(error => {
+        console.error(error);
+      });
+  }
+
+  componentDidMount() {
+    this.getData();
+  }
   render() {
     const navigation = this.props.navigation;
-    console.warn('Props', this.props.rss);
+    const articles = {
+      article: this.state.rss.description,
+    };
+    console.warn('Props', this.state.rss.description);
     return (
       <View style={{backgroundColor: '#6f7d98', flex: 1}}>
         <View style={styles.container}>
           <View style={styles.separator} />
           <TouchableOpacity
             accessibilityRole={'button'}
-            onPress={() => navigation.navigate('Articles')}
+            onPress={() => navigation.navigate('Articles', {item: articles})}
             style={styles.linkContainer}>
-            <Text>{this.props.rss}</Text>
+            <Text style={styles.link}>{this.state.rss.title}</Text>
           </TouchableOpacity>
         </View>
       </View>

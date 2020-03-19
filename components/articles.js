@@ -2,7 +2,11 @@
 import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 import React from 'react';
 
-function Articles({navigation}) {
+function Articles(props) {
+  const {route} = props;
+  const {item} = route.params;
+  const {article} = item;
+  console.warn('route', route.params);
   return (
     <View style={{backgroundColor: '#6f7d98', flex: 1}}>
       <View style={styles.container}>
@@ -11,7 +15,7 @@ function Articles({navigation}) {
           accessibilityRole={'button'}
           onPress={() => navigation.navigate('Post')}
           style={styles.linkContainer}>
-          <Text style={styles.link}>Papers Article</Text>
+          <Text style={styles.link}>{article}</Text>
         </TouchableOpacity>
       </View>
     </View>
