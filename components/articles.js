@@ -13,22 +13,26 @@ function Articles(props) {
   const {item} = route.params;
   const {articles} = item;
   const articlesTags = articles.map(article => {
-    return <Text style={styles.link}>{article.title}</Text>;
+    return (
+      <View style={styles.container}>
+        <View style={styles.separator} />
+        <TouchableOpacity
+          accessibilityRole={'button'}
+          onPress={() => navigation.navigate('Post')}
+          style={styles.linkContainer}>
+          <Text key={article.id} style={styles.description}>
+            {article.title}
+          </Text>
+        </TouchableOpacity>
+      </View>
+    );
   });
 
   //console.warn('route', articles);
   return (
     <View style={{backgroundColor: '#6f7d98', flex: 1}}>
-      <ScrollView>
-        <View style={styles.container}>
-          <View style={styles.separator} />
-          <TouchableOpacity
-            accessibilityRole={'button'}
-            onPress={() => navigation.navigate('Post')}
-            style={styles.linkContainer}>
-            {articlesTags}
-          </TouchableOpacity>
-        </View>
+      <ScrollView style={{marginTop: 100}}>
+        <View>{articlesTags}</View>
       </ScrollView>
     </View>
   );
@@ -36,7 +40,7 @@ function Articles(props) {
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: 90,
+    marginTop: 10,
     paddingHorizontal: 24,
   },
   linkContainer: {
@@ -55,9 +59,10 @@ const styles = StyleSheet.create({
     fontFamily: 'Courier-Bold',
   },
   description: {
-    flex: 3,
+    //flex: 3,
+
     color: '#F9FBE7',
-    paddingVertical: 16,
+    paddingVertical: 10,
     fontWeight: '400',
     fontSize: 18,
     fontFamily: 'Courier-Bold',
@@ -69,3 +74,4 @@ const styles = StyleSheet.create({
 });
 
 export default Articles;
+//style={styles.link}

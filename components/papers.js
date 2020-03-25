@@ -37,8 +37,8 @@ export default class Papers extends React.Component {
   getArticlesList = () => {
     const articlesList = this.state.rss.item;
     if (!articlesList) return;
-    const titlesList = articlesList.map((article, index) => {
-      return {title: article.title, index};
+    const titlesList = articlesList.map((article, id) => {
+      return {title: article.title, id};
     });
     return titlesList;
     //console.warn(titlesList);
