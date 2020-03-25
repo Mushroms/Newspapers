@@ -7,7 +7,7 @@ import {
 } from 'react-native';
 import React from 'react';
 
-function Post({navigation}) {
+function Post() {
   return (
     <View style={{backgroundColor: '#6f7d98', flex: 1}}>
       <View style={styles.container}>

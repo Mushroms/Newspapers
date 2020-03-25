@@ -33,12 +33,23 @@ export default class Papers extends React.Component {
   componentDidMount() {
     this.getData();
   }
+
+  getArticlesList = () => {
+    const articlesList = this.state.rss.item;
+    if (!articlesList) return;
+    const titlesList = articlesList.map((article, index) => {
+      return {title: article.title, index};
+    });
+    return titlesList;
+    //console.warn(titlesList);
+  };
+
   render() {
     const navigation = this.props.navigation;
     const articles = {
-      article: this.state.rss.description,
+      articles: this.getArticlesList(),
     };
-    console.warn('Props', this.state.rss.description);
+    // this.getArticlesList();
     return (
       <View style={{backgroundColor: '#6f7d98', flex: 1}}>
         <View style={styles.container}>
