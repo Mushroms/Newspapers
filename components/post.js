@@ -12,11 +12,11 @@ function Post(props) {
   const {item} = route.params;
   const {articles} = item;
   console.warn('routePost', item);
-  const postsTag = item.map(item => {
-    if (item.id === item.id)
+  const postsTag = item.map((items, id) => {
+    if (id === id)
       return (
-        <Text key={item.id} style={styles.description}>
-          {item.description}
+        <Text key={items.id} style={styles.description}>
+          {items.description}
         </Text>
       );
   });
