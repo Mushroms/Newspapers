@@ -7,26 +7,31 @@ import {
 } from 'react-native';
 import React from 'react';
 
-function Post() {
+function Post(props) {
+  const {route, navigation} = props;
+  const {item} = route.params;
+  const {articles} = item;
+  console.warn('routePost', item);
+  const postsTag = item.map(item => {
+    if (item.id === item.id)
+      return (
+        <Text key={item.id} style={styles.description}>
+          {item.description}
+        </Text>
+      );
+  });
+
   return (
     <View style={{backgroundColor: '#6f7d98', flex: 1}}>
       <View style={styles.container}>
         <View style={styles.separator} />
-        <ScrollView>
-          <Text style={styles.textPost}>
-            Flex Wrap The flexWrap property is set on containers and controls
-            what happens when children overflow the size of the container along
-            the main axis. By default children are forced into a single line
-            (which can shrink elements). If wrapping is allowed items are
-            wrapped into multiple lines along the main axis if needed. When
-            wrapping lines alignContent can be used to specify how the lines are
-            placed in the container. learn more here
-          </Text>
-        </ScrollView>
+        <ScrollView>{postsTag}</ScrollView>
       </View>
     </View>
   );
 }
+
+//console.warn('route', article);
 
 const styles = StyleSheet.create({
   container: {

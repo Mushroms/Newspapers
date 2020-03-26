@@ -18,7 +18,7 @@ function Articles(props) {
         <View style={styles.separator} />
         <TouchableOpacity
           accessibilityRole={'button'}
-          onPress={() => navigation.navigate('Post')}
+          onPress={() => navigation.navigate('Post', {item: articles})}
           style={styles.linkContainer}>
           <Text key={article.id} style={styles.description}>
             {article.title}
