@@ -6,21 +6,16 @@ import Articles from './components/articles';
 import Post from './components/post';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
-//import {parseString} from 'react-native-xml2js';
 
 const Stack = createStackNavigator();
 
 export class MyStack extends Component {
-  //this.props = this.props.rss.title;
-
   render() {
-    //console.warn('PropsApp', this.props.rss.title);
     return (
       <Stack.Navigator>
         <Stack.Screen
           name="Papers"
           component={Papers}
-          //screenProps={this.props.rss}
           options={{
             headerStyle: {
               backgroundColor: '#6f7d98',

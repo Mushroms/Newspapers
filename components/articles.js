@@ -1,4 +1,3 @@
-//import type {Node} from 'react';
 import {
   View,
   Text,
@@ -18,7 +17,7 @@ function Articles(props) {
         <View style={styles.separator} />
         <TouchableOpacity
           accessibilityRole={'button'}
-          onPress={() => navigation.navigate('Post')}
+          onPress={() => navigation.navigate('Post', {item: article})}
           style={styles.linkContainer}>
           <Text key={article.id} style={styles.description}>
             {article.title}
@@ -28,7 +27,6 @@ function Articles(props) {
     );
   });
 
-  //console.warn('route', articles);
   return (
     <View style={{backgroundColor: '#6f7d98', flex: 1}}>
       <ScrollView style={{marginTop: 100}}>

@@ -1,6 +1,5 @@
 import React from 'react';
 import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
-import FetchRss from './fetchRss';
 import {parseString} from 'react-native-xml2js';
 
 export default class Papers extends React.Component {
@@ -13,7 +12,7 @@ export default class Papers extends React.Component {
   }
 
   getData() {
-    return fetch('https://www.vesti.ru/vesti.rss')
+    return fetch('https://news.yandex.ru/world.rss')
       .then(response => response.text())
       .then(responseDataXml => {
         // eslint-disable-next-line handle-callback-err
@@ -32,16 +31,20 @@ export default class Papers extends React.Component {
 
   componentDidMount() {
     this.getData();
+    //console.warn(this.state);
   }
 
   getArticlesList = () => {
     const articlesList = this.state.rss.item;
     if (!articlesList) return;
     const titlesList = articlesList.map((article, id) => {
-      return {title: article.title, id};
+      return {
+        title: article.title,
+        description: article.description,
+        id,
+      };
     });
     return titlesList;
-    //console.warn(titlesList);
   };
 
   render() {
@@ -49,7 +52,7 @@ export default class Papers extends React.Component {
     const articles = {
       articles: this.getArticlesList(),
     };
-    // this.getArticlesList();
+
     return (
       <View style={{backgroundColor: '#6f7d98', flex: 1}}>
         <View style={styles.container}>
