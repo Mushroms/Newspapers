@@ -1,8 +1,12 @@
 import React from 'react';
 import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 import {parseString} from 'react-native-xml2js';
+import PropTypes from 'prop-types';
 
 export default class Papers extends React.Component {
+  static propTypes = {
+    rss: PropTypes.object,
+  };
   constructor(props) {
     super(props);
 
@@ -12,17 +16,21 @@ export default class Papers extends React.Component {
   }
 
   getData() {
-    return fetch('https://news.yandex.ru/world.rss')
+    return fetch('http://news.yandex.ru/world.rss')
       .then(response => response.text())
       .then(responseDataXml => {
-        // eslint-disable-next-line handle-callback-err
-        parseString(responseDataXml, (err, result) => {
-          //console.log('Channel information:', result.rss.channel);
-          //console.log('List all news:', result.rss.channel[0]);
-          this.setState({
-            rss: result.rss.channel[0],
+        try {
+          // eslint-disable-next-line handle-callback-err
+          parseString(responseDataXml, (err, result) => {
+            //console.log('Channel information:', result.rss);
+            //if (result && result.rss && result.rss.channel)
+            this.setState({
+              rss: result.rss.channel[0],
+            });
           });
-        });
+        } catch (error) {
+          console.warn(error);
+        }
       })
       .catch(error => {
         console.error(error);
@@ -30,8 +38,11 @@ export default class Papers extends React.Component {
   }
 
   componentDidMount() {
-    this.getData();
-    //console.warn(this.state);
+    try {
+      this.getData();
+    } catch (error) {
+      console.warn(error);
+    }
   }
 
   getArticlesList = () => {
