@@ -7,7 +7,11 @@ import {
 } from 'react-native';
 import React from 'react';
 
-function Articles(props) {
+type Props = {
+  rss: Object,
+};
+
+function Articles(props: Props) {
   const {route, navigation} = props;
   const {item} = route.params;
   const {articles} = item;

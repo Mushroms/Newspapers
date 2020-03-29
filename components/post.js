@@ -7,8 +7,12 @@ import {
 } from 'react-native';
 import React from 'react';
 
-function Post(props) {
-  const {route, navigation} = props;
+type Props = {
+  rss: Object,
+};
+
+function Post(props: Props) {
+  const {route} = props;
   const {item} = route.params;
 
   return (
