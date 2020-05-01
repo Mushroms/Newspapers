@@ -1,10 +1,4 @@
-import {
-  View,
-  Text,
-  StyleSheet,
-  TouchableOpacity,
-  ScrollView,
-} from 'react-native';
+import {View, Text, StyleSheet, ScrollView} from 'react-native';
 import React from 'react';
 
 type Props = {
@@ -14,6 +8,7 @@ type Props = {
 function Post(props: Props) {
   const {route} = props;
   const {item} = route.params;
+  //let {item} = newDescription.replace(/&quot;/g, '"');
 
   return (
     <View style={{backgroundColor: '#6f7d98', flex: 1}}>
