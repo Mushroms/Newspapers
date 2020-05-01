@@ -2,6 +2,7 @@
 import React from 'react';
 import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 import {parseString} from 'react-native-xml2js';
+import NetError from './netError';
 import PropTypes from 'prop-types';
 
 export default class Papers extends React.Component {
@@ -13,6 +14,7 @@ export default class Papers extends React.Component {
 
     this.state = {
       rss: {},
+      error: '',
     };
   }
 
@@ -35,7 +37,7 @@ export default class Papers extends React.Component {
         }
       })
       .catch(error => {
-        console.warn('Ресурс временно не доступен');
+        this.setState({error: 'Resource is temporarily unavailable'});
       });
   }
 
@@ -68,6 +70,7 @@ export default class Papers extends React.Component {
 
     return (
       <View style={{backgroundColor: '#6f7d98', flex: 1}}>
+        <NetError error={this.state.error} resetError={this._resetError} />
         <View style={styles.container}>
           <View style={styles.separator} />
           <TouchableOpacity
