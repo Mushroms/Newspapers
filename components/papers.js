@@ -1,3 +1,4 @@
+/* eslint-disable handle-callback-err */
 import React from 'react';
 import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 import {parseString} from 'react-native-xml2js';
@@ -24,8 +25,6 @@ export default class Papers extends React.Component {
           parseString(
             responseDataXml.replace(/&quot;/g, '"'),
             (err, result) => {
-              //console.log('Channel information:', result.rss);
-              //if (result && result.rss && result.rss.channel)
               this.setState({
                 rss: result.rss.channel[0],
               });
@@ -36,7 +35,7 @@ export default class Papers extends React.Component {
         }
       })
       .catch(error => {
-        console.error(error);
+        console.warn('Ресурс временно не доступен');
       });
   }
 
