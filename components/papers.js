@@ -21,13 +21,16 @@ export default class Papers extends React.Component {
       .then(responseDataXml => {
         try {
           // eslint-disable-next-line handle-callback-err
-          parseString(responseDataXml, (err, result) => {
-            //console.log('Channel information:', result.rss);
-            //if (result && result.rss && result.rss.channel)
-            this.setState({
-              rss: result.rss.channel[0],
-            });
-          });
+          parseString(
+            responseDataXml.replace(/&quot;/g, '"'),
+            (err, result) => {
+              //console.log('Channel information:', result.rss);
+              //if (result && result.rss && result.rss.channel)
+              this.setState({
+                rss: result.rss.channel[0],
+              });
+            },
+          );
         } catch (error) {
           console.warn(error);
         }

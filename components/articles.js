@@ -1,3 +1,5 @@
+/* eslint-disable react-native/no-inline-styles */
+import React from 'react';
 import {
   View,
   Text,
@@ -5,10 +7,10 @@ import {
   TouchableOpacity,
   ScrollView,
 } from 'react-native';
-import React from 'react';
 
 type Props = {
   rss: Object,
+  article: Object,
 };
 
 function Articles(props: Props) {
@@ -33,7 +35,7 @@ function Articles(props: Props) {
 
   return (
     <View style={{backgroundColor: '#6f7d98', flex: 1}}>
-      <ScrollView style={{marginTop: 100}}>
+      <ScrollView style={{marginTop: 100, marginBottom: 50}}>
         <View>{articlesTags}</View>
       </ScrollView>
     </View>
