@@ -68,7 +68,7 @@ const styles = StyleSheet.create({
     color: '#F9FBE7',
     paddingVertical: 10,
     fontWeight: '400',
-    fontSize: 18,
+    fontSize: 20,
     fontFamily: 'Courier-Bold',
   },
   separator: {

@@ -44,5 +44,3 @@ const styles = StyleSheet.create({
 });
 
 export default Post;
-
-//.replace(/&quot;/g, '"');

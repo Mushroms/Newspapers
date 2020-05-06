@@ -27,7 +27,6 @@ export default class Papers extends React.Component {
           parseString(
             responseDataXml.replace(/&amp;quot;/g, '"'),
             (err, result) => {
-              console.log(responseDataXml);
               this.setState({
                 rss: result.rss.channel[0],
               });
