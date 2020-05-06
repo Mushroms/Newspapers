@@ -78,4 +78,3 @@ const styles = StyleSheet.create({
 });
 
 export default Articles;
-//style={styles.link}

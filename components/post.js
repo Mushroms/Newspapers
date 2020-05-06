@@ -8,14 +8,14 @@ type Props = {
 function Post(props: Props) {
   const {route} = props;
   const {item} = route.params;
-  //let {item} = newDescription.replace(/&quot;/g, '"');
+  const PostObj = item.description;
 
   return (
     <View style={{backgroundColor: '#6f7d98', flex: 1}}>
       <View style={styles.container}>
         <View style={styles.separator} />
         <ScrollView>
-          <Text style={styles.textPost}>{item.description}</Text>
+          <Text style={styles.textPost}>{PostObj}</Text>
         </ScrollView>
       </View>
     </View>
@@ -44,3 +44,5 @@ const styles = StyleSheet.create({
 });
 
 export default Post;
+
+//.replace(/&quot;/g, '"');

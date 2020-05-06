@@ -61,5 +61,3 @@ export default class App extends Component {
     );
   }
 }
-
-//rss={this.state.rss}

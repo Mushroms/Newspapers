@@ -14,7 +14,7 @@ export default class Papers extends React.Component {
 
     this.state = {
       rss: {},
-      error: '',
+      error: false,
     };
   }
 
@@ -24,17 +24,21 @@ export default class Papers extends React.Component {
       .then(responseDataXml => {
         try {
           // eslint-disable-next-line handle-callback-err
-          parseString(responseDataXml, (err, result) => {
-            this.setState({
-              rss: result.rss.channel[0],
-            });
-          });
+          parseString(
+            responseDataXml.replace(/&amp;quot;/g, '"'),
+            (err, result) => {
+              console.log(responseDataXml);
+              this.setState({
+                rss: result.rss.channel[0],
+              });
+            },
+          );
         } catch (error) {
           console.warn(error);
         }
       })
       .catch(error => {
-        this.setState({error: 'Resource is temporarily unavailable'});
+        this.setState({error: true});
       });
   }
 
@@ -118,7 +122,3 @@ const styles = StyleSheet.create({
     height: 1,
   },
 });
-
-// export default Papers;
-
-//<Text style={styles.link}>Example Paper</Text>;
