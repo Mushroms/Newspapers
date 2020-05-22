@@ -93,40 +93,31 @@ export default class Papers extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: 90,
+    marginTop: 100,
     paddingHorizontal: 24,
-    backgroundColor: '#6f7d98',
-    // borderColor: '#F9FBE7',
-    // borderWidth: 1,
   },
   linkContainer: {
-    marginTop: 25,
-    //flexWrap: 'wrap',
-    //flexDirection: 'row',
-    justifyContent: 'center',
-    //alignItems: 'center',
+    flexWrap: 'wrap',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
     paddingVertical: 8,
-    backgroundColor: '#6f7d98',
-
-    // borderColor: '#F9FBE7',
-    // borderWidth: 1,
   },
   link: {
-    //flex: 1,
-    justifyContent: 'center',
-    marginTop: 10,
-    fontSize: 20,
-    //fontWeight: '400',
+    flex: 2,
+    marginTop: 20,
+    fontSize: 18,
+    fontWeight: '400',
     color: '#F9FBE7',
-    backgroundColor: '#6f7d98',
     //fontFamily: 'Courier-Bold',
   },
   description: {
     //flex: 3,
-    paddingVertical: 16,
+
+    color: '#F9FBE7',
+    paddingVertical: 10,
     fontWeight: '400',
-    fontSize: 20,
-    backgroundColor: '#6f7d98',
+    fontSize: 18,
     //fontFamily: 'Courier-Bold',
   },
   separator: {

@@ -92,34 +92,31 @@ export default class Yandex_World extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: 30,
+    marginTop: 10,
     paddingHorizontal: 24,
-    backgroundColor: '#6f7d98',
   },
   linkContainer: {
-    //flexWrap: 'wrap',
+    flexWrap: 'wrap',
     flexDirection: 'row',
-    justifyContent: 'center',
+    justifyContent: 'space-between',
     alignItems: 'center',
     paddingVertical: 8,
-    backgroundColor: '#6f7d98',
   },
   link: {
     flex: 2,
-    justifyContent: 'center',
-    marginTop: 25,
-    fontSize: 20,
-    //fontWeight: '400',
+    marginTop: 20,
+    fontSize: 18,
+    fontWeight: '400',
     color: '#F9FBE7',
-    backgroundColor: '#6f7d98',
     //fontFamily: 'Courier-Bold',
   },
   description: {
     //flex: 3,
-    paddingVertical: 16,
+
+    color: '#F9FBE7',
+    paddingVertical: 10,
     fontWeight: '400',
-    fontSize: 20,
-    backgroundColor: '#6f7d98',
+    fontSize: 18,
     //fontFamily: 'Courier-Bold',
   },
   separator: {
