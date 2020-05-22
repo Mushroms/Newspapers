@@ -19,26 +19,31 @@ export default class Papers extends React.Component {
   }
 
   getData() {
-    return fetch('http://news.yandex.ru/world.rss')
-      .then(response => response.text())
-      .then(responseDataXml => {
-        try {
-          // eslint-disable-next-line handle-callback-err
-          parseString(
-            responseDataXml.replace(/&amp;quot;/g, '"'),
-            (err, result) => {
-              this.setState({
-                rss: result.rss.channel[0],
-              });
-            },
-          );
-        } catch (error) {
-          console.warn(error);
-        }
-      })
-      .catch(error => {
-        this.setState({error: true});
-      });
+    //let url =
+    // 'https://news.yandex.ru/health.rss, http://news.yandex.ru/world.rss';
+    return (
+      fetch('https://news.yandex.ru/health.rss')
+        //fetch('http://news.yandex.ru/world.rss')
+        .then(response => response.text())
+        .then(responseDataXml => {
+          try {
+            // eslint-disable-next-line handle-callback-err
+            parseString(
+              responseDataXml.replace(/&amp;quot;/g, '"'),
+              (err, result) => {
+                this.setState({
+                  rss: result.rss.channel[0],
+                });
+              },
+            );
+          } catch (error) {
+            console.warn(error);
+          }
+        })
+        .catch(error => {
+          this.setState({error: true});
+        })
+    );
   }
 
   componentDidMount() {
@@ -84,6 +89,7 @@ export default class Papers extends React.Component {
     );
   }
 }
+
 const styles = StyleSheet.create({
   container: {
     marginTop: 90,
@@ -106,15 +112,15 @@ const styles = StyleSheet.create({
     fontWeight: '400',
     color: '#F9FBE7',
     backgroundColor: '#6f7d98',
-    fontFamily: 'Courier-Bold',
+    //fontFamily: 'Courier-Bold',
   },
   description: {
     flex: 3,
     paddingVertical: 16,
     fontWeight: '400',
-    fontSize: 18,
+    fontSize: 20,
     backgroundColor: '#6f7d98',
-    fontFamily: 'Courier-Bold',
+    //fontFamily: 'Courier-Bold',
   },
   separator: {
     backgroundColor: '#F9FBE7',
