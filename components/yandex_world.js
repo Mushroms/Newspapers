@@ -4,9 +4,8 @@ import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 import {parseString} from 'react-native-xml2js';
 import NetError from './netError';
 import PropTypes from 'prop-types';
-import Yandex_World from './yandex_world';
 
-export default class Papers extends React.Component {
+export default class Yandex_World extends React.Component {
   static propTypes = {
     rss: PropTypes.object,
   };
@@ -20,11 +19,11 @@ export default class Papers extends React.Component {
   }
 
   getData() {
-    let url = 'https://news.yandex.ru/health.rss';
+    //let url = 'https://news.yandex.ru/health.rss';
     //return Promise.all(
     //urls.map(url =>
-    fetch(url)
-      //fetch('http://news.yandex.ru/world.rss')
+    //fetch(url)
+    fetch('http://news.yandex.ru/world.rss')
       .then(response => response.text())
       .then(responseDataXml => {
         try {
@@ -64,6 +63,7 @@ export default class Papers extends React.Component {
         id,
       };
     });
+
     return titlesList;
   };
 
@@ -85,7 +85,6 @@ export default class Papers extends React.Component {
             <Text style={styles.link}>{this.state.rss.title}</Text>
           </TouchableOpacity>
         </View>
-        <Yandex_World navigation={this.props.navigation} />
       </View>
     );
   }
@@ -93,28 +92,22 @@ export default class Papers extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: 90,
+    marginTop: 30,
     paddingHorizontal: 24,
     backgroundColor: '#6f7d98',
-    // borderColor: '#F9FBE7',
-    // borderWidth: 1,
   },
   linkContainer: {
-    marginTop: 25,
     //flexWrap: 'wrap',
-    //flexDirection: 'row',
+    flexDirection: 'row',
     justifyContent: 'center',
-    //alignItems: 'center',
+    alignItems: 'center',
     paddingVertical: 8,
     backgroundColor: '#6f7d98',
-
-    // borderColor: '#F9FBE7',
-    // borderWidth: 1,
   },
   link: {
-    //flex: 1,
+    flex: 2,
     justifyContent: 'center',
-    marginTop: 10,
+    marginTop: 25,
     fontSize: 20,
     //fontWeight: '400',
     color: '#F9FBE7',

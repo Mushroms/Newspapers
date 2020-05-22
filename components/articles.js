@@ -57,7 +57,7 @@ const styles = StyleSheet.create({
   link: {
     flex: 2,
     marginTop: 20,
-    fontSize: 19,
+    fontSize: 18,
     fontWeight: '400',
     color: '#F9FBE7',
     //fontFamily: 'Courier-Bold',
@@ -68,7 +68,7 @@ const styles = StyleSheet.create({
     color: '#F9FBE7',
     paddingVertical: 10,
     fontWeight: '400',
-    fontSize: 19,
+    fontSize: 18,
     //fontFamily: 'Courier-Bold',
   },
   separator: {
