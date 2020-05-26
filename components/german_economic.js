@@ -1,13 +1,10 @@
-/* eslint-disable handle-callback-err */
 import React from 'react';
 import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 import {parseString} from 'react-native-xml2js';
 import NetError from './netError';
 import PropTypes from 'prop-types';
-import Yandex_World from './yandex_world';
-import German_economic from './german_economic';
 
-export default class Papers extends React.Component {
+export default class German_economic extends React.Component {
   static propTypes = {
     rss: PropTypes.object,
   };
@@ -21,11 +18,11 @@ export default class Papers extends React.Component {
   }
 
   getData() {
-    let url = 'https://news.yandex.ru/health.rss';
+    //let url = 'https://news.yandex.ru/health.rss';
     //return Promise.all(
     //urls.map(url =>
-    fetch(url)
-      //fetch('http://news.yandex.ru/world.rss')
+    //fetch(url)
+    fetch('https://www.handelsblatt.com/contentexport/feed/wirtschaft')
       .then(response => response.text())
       .then(responseDataXml => {
         try {
@@ -65,6 +62,7 @@ export default class Papers extends React.Component {
         id,
       };
     });
+
     return titlesList;
   };
 
@@ -75,7 +73,7 @@ export default class Papers extends React.Component {
     };
 
     return (
-      <View style={{backgroundColor: '#6f7d98', flex: 1}}>
+      <View style={{backgroundColor: '#6f7d98', flex: 9}}>
         <NetError error={this.state.error} resetError={this._resetError} />
         <View style={styles.container}>
           <View style={styles.separator} />
@@ -86,8 +84,6 @@ export default class Papers extends React.Component {
             <Text style={styles.link}>{this.state.rss.title}</Text>
           </TouchableOpacity>
         </View>
-        <Yandex_World navigation={this.props.navigation} />
-        <German_economic navigation={this.props.navigation} />
       </View>
     );
   }
@@ -95,7 +91,7 @@ export default class Papers extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: 100,
+    marginTop: 10,
     paddingHorizontal: 24,
   },
   linkContainer: {
