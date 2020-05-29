@@ -6,7 +6,6 @@ import Articles from './components/articles';
 import Post from './components/post';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
-import Yandex_World from './components/yandex_world';
 
 const Stack = createStackNavigator();
 
@@ -26,18 +25,7 @@ export class MyStack extends Component {
             headerBackground: () => <View tint="#F9FBE7" intensity={100} />,
           }}
         />
-        <Stack.Screen
-          name="Yandex_World"
-          component={Yandex_World}
-          options={{
-            headerStyle: {
-              backgroundColor: '#6f7d98',
-            },
-            headerTransparent: true,
-            headerTintColor: '#a5c7f3',
-            headerBackground: () => <View tint="#F9FBE7" intensity={100} />,
-          }}
-        />
+
         <Stack.Screen
           name="Articles"
           component={Articles}

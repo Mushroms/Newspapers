@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
 import Yandex_World from './yandex_world';
 import Yandex_sport from './yandex_sport';
 import German_economic from './german_economic';
-import Gerrman_sport from './german_sport';
+import German_sport from './german_sport';
 
 export default class Papers extends React.Component {
   static propTypes = {
@@ -91,7 +91,7 @@ export default class Papers extends React.Component {
         <Yandex_World navigation={this.props.navigation} />
         <Yandex_sport navigation={this.props.navigation} />
         <German_economic navigation={this.props.navigation} />
-        <Gerrman_sport navigation={this.props.navigation} />
+        <German_sport navigation={this.props.navigation} />
       </View>
     );
   }
