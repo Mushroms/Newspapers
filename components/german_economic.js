@@ -73,7 +73,7 @@ export default class German_economic extends React.Component {
     };
 
     return (
-      <View style={{backgroundColor: '#6f7d98', flex: 9}}>
+      <View style={{backgroundColor: '#6f7d98', flex: 2}}>
         <NetError error={this.state.error} resetError={this._resetError} />
         <View style={styles.container}>
           <View style={styles.separator} />

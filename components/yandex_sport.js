@@ -1,15 +1,10 @@
-/* eslint-disable handle-callback-err */
 import React from 'react';
 import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 import {parseString} from 'react-native-xml2js';
 import NetError from './netError';
 import PropTypes from 'prop-types';
-import Yandex_World from './yandex_world';
-import Yandex_sport from './yandex_sport';
-import German_economic from './german_economic';
-import Gerrman_sport from './german_sport';
 
-export default class Papers extends React.Component {
+export default class Yandex_sport extends React.Component {
   static propTypes = {
     rss: PropTypes.object,
   };
@@ -23,11 +18,11 @@ export default class Papers extends React.Component {
   }
 
   getData() {
-    let url = 'https://news.yandex.ru/health.rss';
+    //let url = 'https://news.yandex.ru/health.rss';
     //return Promise.all(
     //urls.map(url =>
-    fetch(url)
-      //fetch('http://news.yandex.ru/world.rss')
+    //fetch(url)
+    fetch('https://news.yandex.ru/sport.rss')
       .then(response => response.text())
       .then(responseDataXml => {
         try {
@@ -67,6 +62,7 @@ export default class Papers extends React.Component {
         id,
       };
     });
+
     return titlesList;
   };
 
@@ -88,10 +84,6 @@ export default class Papers extends React.Component {
             <Text style={styles.link}>{this.state.rss.title}</Text>
           </TouchableOpacity>
         </View>
-        <Yandex_World navigation={this.props.navigation} />
-        <Yandex_sport navigation={this.props.navigation} />
-        <German_economic navigation={this.props.navigation} />
-        <Gerrman_sport navigation={this.props.navigation} />
       </View>
     );
   }
@@ -99,7 +91,7 @@ export default class Papers extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: 100,
+    marginTop: 10,
     paddingHorizontal: 24,
   },
   linkContainer: {
