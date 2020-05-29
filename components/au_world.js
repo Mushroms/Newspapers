@@ -1,10 +1,11 @@
+/* eslint-disable handle-callback-err */
 import React from 'react';
 import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 import {parseString} from 'react-native-xml2js';
 import NetError from './netError';
 import PropTypes from 'prop-types';
 
-export default class Yandex_sport extends React.Component {
+export default class AU_world extends React.Component {
   static propTypes = {
     rss: PropTypes.object,
   };
@@ -22,7 +23,7 @@ export default class Yandex_sport extends React.Component {
     //return Promise.all(
     //urls.map(url =>
     //fetch(url)
-    fetch('https://news.yandex.ru/sport.rss')
+    fetch('https://www.dailytelegraph.com.au/news/world/rss')
       .then(response => response.text())
       .then(responseDataXml => {
         try {

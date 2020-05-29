@@ -1,10 +1,11 @@
+/* eslint-disable handle-callback-err */
 import React from 'react';
 import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 import {parseString} from 'react-native-xml2js';
 import NetError from './netError';
 import PropTypes from 'prop-types';
 
-export default class Yandex_sport extends React.Component {
+export default class Wall_Street_Business extends React.Component {
   static propTypes = {
     rss: PropTypes.object,
   };
@@ -22,7 +23,7 @@ export default class Yandex_sport extends React.Component {
     //return Promise.all(
     //urls.map(url =>
     //fetch(url)
-    fetch('https://news.yandex.ru/sport.rss')
+    fetch('https://feeds.a.dj.com/rss/WSJcomUSBusiness.xml')
       .then(response => response.text())
       .then(responseDataXml => {
         try {
@@ -73,7 +74,7 @@ export default class Yandex_sport extends React.Component {
     };
 
     return (
-      <View style={{backgroundColor: '#6f7d98', flex: 1}}>
+      <View style={{backgroundColor: '#6f7d98', flex: 4}}>
         <NetError error={this.state.error} resetError={this._resetError} />
         <View style={styles.container}>
           <View style={styles.separator} />

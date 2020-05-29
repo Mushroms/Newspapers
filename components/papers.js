@@ -8,6 +8,9 @@ import Yandex_World from './yandex_world';
 import Yandex_sport from './yandex_sport';
 import German_economic from './german_economic';
 import German_sport from './german_sport';
+import AU_world from './au_world';
+import Wall_Street from './wall_street';
+import Wall_Street_Business from './wall_street_business';
 
 export default class Papers extends React.Component {
   static propTypes = {
@@ -23,11 +26,11 @@ export default class Papers extends React.Component {
   }
 
   getData() {
-    let url = 'https://news.yandex.ru/health.rss';
+    //let url = 'https://news.yandex.ru/health.rss';
     //return Promise.all(
     //urls.map(url =>
-    fetch(url)
-      //fetch('http://news.yandex.ru/world.rss')
+    //fetch(url)
+    fetch('https://news.yandex.ru/health.rss')
       .then(response => response.text())
       .then(responseDataXml => {
         try {
@@ -92,6 +95,9 @@ export default class Papers extends React.Component {
         <Yandex_sport navigation={this.props.navigation} />
         <German_economic navigation={this.props.navigation} />
         <German_sport navigation={this.props.navigation} />
+        <AU_world navigation={this.props.navigation} />
+        <Wall_Street navigation={this.props.navigation} />
+        <Wall_Street_Business navigation={this.props.navigation} />
       </View>
     );
   }
@@ -118,8 +124,6 @@ const styles = StyleSheet.create({
     //fontFamily: 'Courier-Bold',
   },
   description: {
-    //flex: 3,
-
     color: '#F9FBE7',
     paddingVertical: 10,
     fontWeight: '400',

@@ -73,7 +73,7 @@ export default class German_sport extends React.Component {
     };
 
     return (
-      <View style={{backgroundColor: '#6f7d98', flex: 14}}>
+      <View style={{backgroundColor: '#6f7d98', flex: 1}}>
         <NetError error={this.state.error} resetError={this._resetError} />
         <View style={styles.container}>
           <View style={styles.separator} />
@@ -110,8 +110,6 @@ const styles = StyleSheet.create({
     //fontFamily: 'Courier-Bold',
   },
   description: {
-    //flex: 3,
-
     color: '#F9FBE7',
     paddingVertical: 10,
     fontWeight: '400',
