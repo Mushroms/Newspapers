@@ -92,15 +92,15 @@ export default class AU_world extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
+    height: '100%',
+    width: '100%',
     marginTop: 10,
     paddingHorizontal: 24,
   },
   linkContainer: {
-    flexWrap: 'wrap',
     flexDirection: 'row',
-    justifyContent: 'space-between',
     alignItems: 'center',
-    paddingVertical: 8,
+    position: 'relative',
   },
   link: {
     flex: 2,

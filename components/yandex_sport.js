@@ -95,11 +95,9 @@ const styles = StyleSheet.create({
     paddingHorizontal: 24,
   },
   linkContainer: {
-    flexWrap: 'wrap',
     flexDirection: 'row',
-    justifyContent: 'space-between',
     alignItems: 'center',
-    paddingVertical: 8,
+    position: 'relative',
   },
   link: {
     flex: 2,
