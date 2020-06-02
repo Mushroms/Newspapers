@@ -75,8 +75,8 @@ export default class AU_world extends React.Component {
 
     return (
       <View style={{backgroundColor: '#6f7d98', flex: 1}}>
-        <NetError error={this.state.error} resetError={this._resetError} />
         <View style={styles.container}>
+          <NetError error={this.state.error} resetError={this._resetError} />
           <View style={styles.separator} />
           <TouchableOpacity
             accessibilityRole={'button'}

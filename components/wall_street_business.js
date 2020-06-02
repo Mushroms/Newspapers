@@ -75,8 +75,8 @@ export default class Wall_Street_Business extends React.Component {
 
     return (
       <View style={{backgroundColor: '#6f7d98', flex: 4}}>
-        <NetError error={this.state.error} resetError={this._resetError} />
         <View style={styles.container}>
+          <NetError error={this.state.error} resetError={this._resetError} />
           <View style={styles.separator} />
           <TouchableOpacity
             accessibilityRole={'button'}
