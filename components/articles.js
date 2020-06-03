@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: '400',
     color: '#F9FBE7',
-    fontFamily: 'Courier-Bold',
+    //fontFamily: 'Courier-Bold',
   },
   description: {
     //flex: 3,
@@ -69,7 +69,7 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
     fontWeight: '400',
     fontSize: 18,
-    fontFamily: 'Courier-Bold',
+    //fontFamily: 'Courier-Bold',
   },
   separator: {
     backgroundColor: '#F9FBE7',
