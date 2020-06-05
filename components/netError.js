@@ -8,7 +8,7 @@ export default class NetError extends React.Component {
       <View style={{backgroundColor: '#6f7d98', flex: 1}}>
         <View style={styles.container}>
           <View style={styles.separator} />
-          <Text style={styles.link}>Ресурс временно не доступен</Text>
+          <Text style={styles.link}>Check your internet connection!</Text>
         </View>
       </View>
     );
@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
     fontWeight: '400',
     color: '#F9FBE7',
     backgroundColor: '#6f7d98',
-    fontFamily: 'Courier-Bold',
+    //fontFamily: 'Courier-Bold',
   },
 
   separator: {

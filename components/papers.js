@@ -7,34 +7,45 @@ import PropTypes from 'prop-types';
 
 export default class Papers extends React.Component {
   static propTypes = {
-    rss: PropTypes.object,
+    //rss: PropTypes.object,
   };
   constructor(props) {
     super(props);
 
     this.state = {
-      rss: {},
+      rss: [],
+      // rssYandexWorld: [],
+      // rssYandexHealth: [],
+      // rssYandexSport: [],
+      // rssWS_World: [],
+      // rssWS_Business: [],
+      // rssGermanWorld: [],
+      // rssGermanSport: [],
+      // rssAU_world: [],
       error: false,
     };
   }
 
   getData() {
-    return fetch('http://news.yandex.ru/world.rss')
-      .then(response => response.text())
-      .then(responseDataXml => {
+    const urls = [
+      'http://news.yandex.ru/world.rss',
+      'https://news.yandex.ru/health.rss',
+      'https://news.yandex.ru/sport.rss',
+      'https://feeds.a.dj.com/rss/RSSWorldNews.xml',
+      'https://feeds.a.dj.com/rss/WSJcomUSBusiness.xml',
+      'https://www.handelsblatt.com/contentexport/feed/wirtschaft',
+      'https://www.handelsblatt.com/contentexport/feed/sport',
+      'https://www.dailytelegraph.com.au/news/world/rss',
+    ];
+    return Promise.all(
+      urls.map(url => fetch(url).then(response => response.text())),
+    )
+
+      .then(dataSource => {
         try {
-          // eslint-disable-next-line handle-callback-err
-          parseString(
-            responseDataXml.replace(/&amp;quot;/g, '"'),
-            (err, result) => {
-              console.log(responseDataXml);
-              this.setState({
-                rss: result.rss.channel[0],
-              });
-            },
-          );
+          dataSource.forEach(all_papers => this.parseSourceFile(all_papers));
         } catch (error) {
-          console.warn(error);
+          console.log(error);
         }
       })
       .catch(error => {
@@ -42,16 +53,27 @@ export default class Papers extends React.Component {
       });
   }
 
+  parseSourceFile(dataSource) {
+    const rss = this.state.rss;
+
+    parseString(dataSource.replace(/&amp;quot;/g, '"'), (err, result) => {
+      rss.push(result.rss.channel[0]);
+      this.setState({rss});
+      console.log(result.rss.channel);
+    });
+  }
+
   componentDidMount() {
     try {
       this.getData();
     } catch (error) {
-      console.warn(error);
+      console.log(error);
     }
   }
 
   getArticlesList = () => {
     const articlesList = this.state.rss.item;
+    //console.log(this.state.rss.item);
     if (!articlesList) return;
     const titlesList = articlesList.map((article, id) => {
       return {
@@ -122,3 +144,5 @@ const styles = StyleSheet.create({
     height: 1,
   },
 });
+
+//this.state.rss.title
