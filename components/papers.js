@@ -1,9 +1,16 @@
 /* eslint-disable handle-callback-err */
 import React from 'react';
-import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  TouchableOpacity,
+  ScrollView,
+} from 'react-native';
 import {parseString} from 'react-native-xml2js';
 import NetError from './netError';
 import PropTypes from 'prop-types';
+import {getActionFromState} from '@react-navigation/native';
 
 export default class Papers extends React.Component {
   static propTypes = {
@@ -14,14 +21,6 @@ export default class Papers extends React.Component {
 
     this.state = {
       rss: [],
-      // rssYandexWorld: [],
-      // rssYandexHealth: [],
-      // rssYandexSport: [],
-      // rssWS_World: [],
-      // rssWS_Business: [],
-      // rssGermanWorld: [],
-      // rssGermanSport: [],
-      // rssAU_world: [],
       error: false,
     };
   }
@@ -37,13 +36,18 @@ export default class Papers extends React.Component {
       'https://www.handelsblatt.com/contentexport/feed/sport',
       'https://www.dailytelegraph.com.au/news/world/rss',
     ];
-    return Promise.all(
-      urls.map(url => fetch(url).then(response => response.text())),
-    )
+    const parsedPapers = [];
+    Promise.all(urls.map(url => fetch(url).then(response => response.text())))
 
-      .then(dataSource => {
+      .then(PapersXMLs => {
         try {
-          dataSource.forEach(all_papers => this.parseSourceFile(all_papers));
+          PapersXMLs.forEach(paperXML =>
+            this.parseSourceFile(paperXML, parsedPapers),
+          );
+
+          this.setState({
+            rss: parsedPapers,
+          });
         } catch (error) {
           console.log(error);
         }
@@ -53,13 +57,9 @@ export default class Papers extends React.Component {
       });
   }
 
-  parseSourceFile(dataSource) {
-    const rss = this.state.rss;
-
-    parseString(dataSource.replace(/&amp;quot;/g, '"'), (err, result) => {
-      rss.push(result.rss.channel[0]);
-      this.setState({rss});
-      console.log(result.rss.channel);
+  parseSourceFile(paperXML, parsedPapers) {
+    parseString(paperXML.replace(/&amp;quot;/g, '"'), (err, result) => {
+      parsedPapers.push(result);
     });
   }
 
@@ -71,38 +71,48 @@ export default class Papers extends React.Component {
     }
   }
 
-  getArticlesList = () => {
-    const articlesList = this.state.rss.item;
-    //console.log(this.state.rss.item);
-    if (!articlesList) return;
-    const titlesList = articlesList.map((article, id) => {
-      return {
-        title: article.title,
-        description: article.description,
-        id,
-      };
-    });
-    return titlesList;
-  };
-
-  render() {
+  getPapersTitle = () => {
+    const papersList = this.state.rss;
     const navigation = this.props.navigation;
-    const articles = {
-      articles: this.getArticlesList(),
-    };
 
-    return (
-      <View style={{backgroundColor: '#6f7d98', flex: 1}}>
-        <NetError error={this.state.error} resetError={this._resetError} />
-        <View style={styles.container}>
+    if (!papersList) return;
+    const papers = papersList.map(parsPaper => {
+      return (
+        <>
           <View style={styles.separator} />
           <TouchableOpacity
             accessibilityRole={'button'}
-            onPress={() => navigation.navigate('Articles', {item: articles})}
+            onPress={() =>
+              navigation.navigate('Articles', {
+                articlesList: this.getArticlesList(parsPaper),
+              })
+            }
             style={styles.linkContainer}>
-            <Text style={styles.link}>{this.state.rss.title}</Text>
+            <Text style={styles.link}>{parsPaper.rss.channel[0].title[0]}</Text>
           </TouchableOpacity>
-        </View>
+        </>
+      );
+    });
+
+    return papers;
+  };
+
+  getArticlesList = parsPaper => {
+    if (!parsPaper) return;
+    const articlesList = parsPaper.rss.channel[0].item.map(article => {
+      return {
+        title: article.title[0],
+        description: article.description[0],
+      };
+    });
+    return articlesList;
+  };
+
+  render() {
+    return (
+      <View style={{backgroundColor: '#6f7d98', flex: 1}}>
+        <NetError error={this.state.error} resetError={this._resetError} />
+        <View style={styles.container}>{this.getPapersTitle()}</View>
       </View>
     );
   }
@@ -123,12 +133,10 @@ const styles = StyleSheet.create({
   },
   link: {
     flex: 2,
-    justifyContent: 'center',
     marginTop: 20,
-    fontSize: 20,
+    fontSize: 18,
     fontWeight: '400',
     color: '#F9FBE7',
-    backgroundColor: '#6f7d98',
     //fontFamily: 'Courier-Bold',
   },
   description: {
@@ -146,3 +154,15 @@ const styles = StyleSheet.create({
 });
 
 //this.state.rss.title
+//<View style={{backgroundColor: '#6f7d98', flex: 1}}>
+//<View>
+// {
+//   titlesPapers.map((titles, id) => {
+//     return (
+//       <View key={id}>
+//         <Text>{titles}</Text>
+//       </View>
+//     );
+//   })
+// }
+//             </View >

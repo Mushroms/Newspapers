@@ -15,9 +15,8 @@ type Props = {
 
 function Articles(props: Props) {
   const {route, navigation} = props;
-  const {item} = route.params;
-  const {articles} = item;
-  const articlesTags = articles.map(article => {
+  const {articlesList} = route.params;
+  const articlesTags = articlesList.map(article => {
     return (
       <View style={styles.container}>
         <View style={styles.separator} />
