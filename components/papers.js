@@ -1,5 +1,5 @@
 /* eslint-disable handle-callback-err */
-import React from 'react';
+import React, {Fragment} from 'react';
 import {
   View,
   Text,
@@ -38,16 +38,11 @@ export default class Papers extends React.Component {
     ];
     const parsedPapers = [];
     Promise.all(urls.map(url => fetch(url).then(response => response.text())))
-
       .then(PapersXMLs => {
         try {
           PapersXMLs.forEach(paperXML =>
             this.parseSourceFile(paperXML, parsedPapers),
           );
-
-          this.setState({
-            rss: parsedPapers,
-          });
         } catch (error) {
           console.log(error);
         }
@@ -58,8 +53,13 @@ export default class Papers extends React.Component {
   }
 
   parseSourceFile(paperXML, parsedPapers) {
+    const currentState = this.state.rss;
     parseString(paperXML.replace(/&amp;quot;/g, '"'), (err, result) => {
-      parsedPapers.push(result);
+      currentState.push(result);
+      this.setState({
+        rss: currentState,
+      });
+      // parsedPapers.push(result);
     });
   }
 
@@ -76,9 +76,10 @@ export default class Papers extends React.Component {
     const navigation = this.props.navigation;
 
     if (!papersList) return;
-    const papers = papersList.map(parsPaper => {
+    const papers = papersList.map((parsPaper, index) => {
       return (
-        <>
+        <Fragment key={index}>
+          <NetError error={this.state.error} resetError={this._resetError} />
           <View style={styles.separator} />
           <TouchableOpacity
             accessibilityRole={'button'}
@@ -90,7 +91,7 @@ export default class Papers extends React.Component {
             style={styles.linkContainer}>
             <Text style={styles.link}>{parsPaper.rss.channel[0].title[0]}</Text>
           </TouchableOpacity>
-        </>
+        </Fragment>
       );
     });
 
@@ -111,7 +112,6 @@ export default class Papers extends React.Component {
   render() {
     return (
       <View style={{backgroundColor: '#6f7d98', flex: 1}}>
-        <NetError error={this.state.error} resetError={this._resetError} />
         <View style={styles.container}>{this.getPapersTitle()}</View>
       </View>
     );
@@ -152,17 +152,3 @@ const styles = StyleSheet.create({
     height: 1,
   },
 });
-
-//this.state.rss.title
-//<View style={{backgroundColor: '#6f7d98', flex: 1}}>
-//<View>
-// {
-//   titlesPapers.map((titles, id) => {
-//     return (
-//       <View key={id}>
-//         <Text>{titles}</Text>
-//       </View>
-//     );
-//   })
-// }
-//             </View >

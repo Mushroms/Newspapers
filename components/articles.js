@@ -16,17 +16,15 @@ type Props = {
 function Articles(props: Props) {
   const {route, navigation} = props;
   const {articlesList} = route.params;
-  const articlesTags = articlesList.map(article => {
+  const articlesTags = articlesList.map((article, index) => {
     return (
-      <View style={styles.container}>
+      <View key={index} style={styles.container}>
         <View style={styles.separator} />
         <TouchableOpacity
           accessibilityRole={'button'}
           onPress={() => navigation.navigate('Post', {item: article})}
           style={styles.linkContainer}>
-          <Text key={article.id} style={styles.description}>
-            {article.title}
-          </Text>
+          <Text style={styles.description}>{article.title}</Text>
         </TouchableOpacity>
       </View>
     );
