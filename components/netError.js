@@ -29,7 +29,6 @@ const styles = StyleSheet.create({
     fontWeight: '400',
     color: '#F9FBE7',
     backgroundColor: '#6f7d98',
-    //fontFamily: 'Courier-Bold',
   },
 
   separator: {

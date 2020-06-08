@@ -9,16 +9,10 @@ import {
 } from 'react-native';
 import {parseString} from 'react-native-xml2js';
 import NetError from './netError';
-import PropTypes from 'prop-types';
-import {getActionFromState} from '@react-navigation/native';
 
 export default class Papers extends React.Component {
-  static propTypes = {
-    //rss: PropTypes.object,
-  };
   constructor(props) {
     super(props);
-
     this.state = {
       rss: [],
       error: false,
@@ -52,14 +46,13 @@ export default class Papers extends React.Component {
       });
   }
 
-  parseSourceFile(paperXML, parsedPapers) {
+  parseSourceFile(paperXML) {
     const currentState = this.state.rss;
     parseString(paperXML.replace(/&amp;quot;/g, '"'), (err, result) => {
       currentState.push(result);
       this.setState({
         rss: currentState,
       });
-      // parsedPapers.push(result);
     });
   }
 
@@ -79,7 +72,6 @@ export default class Papers extends React.Component {
     const papers = papersList.map((parsPaper, index) => {
       return (
         <Fragment key={index}>
-          <NetError error={this.state.error} resetError={this._resetError} />
           <View style={styles.separator} />
           <TouchableOpacity
             accessibilityRole={'button'}
@@ -94,7 +86,6 @@ export default class Papers extends React.Component {
         </Fragment>
       );
     });
-
     return papers;
   };
 
@@ -112,6 +103,7 @@ export default class Papers extends React.Component {
   render() {
     return (
       <View style={{backgroundColor: '#6f7d98', flex: 1}}>
+        <NetError error={this.state.error} resetError={this._resetError} />
         <View style={styles.container}>{this.getPapersTitle()}</View>
       </View>
     );

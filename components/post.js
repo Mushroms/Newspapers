@@ -1,11 +1,7 @@
 import {View, Text, StyleSheet, ScrollView} from 'react-native';
 import React from 'react';
 
-type Props = {
-  rss: Object,
-};
-
-function Post(props: Props) {
+function Post(props) {
   const {route} = props;
   const {item} = route.params;
   const PostObj = item.description;
@@ -44,5 +40,3 @@ const styles = StyleSheet.create({
 });
 
 export default Post;
-
-//.replace(/&quot;/g, '"');
