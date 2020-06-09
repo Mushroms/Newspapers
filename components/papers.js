@@ -28,6 +28,7 @@ export default class Papers extends React.Component {
       'https://www.vesti.ru/vesti.rss',
       'https://aif.ru/rss/society.php',
       'https://www.radiosvoboda.org/api/zrqiteuuir',
+      'https://www.svaboda.org/api/zvgrppeo_qpm',
       'https://rss.nytimes.com/services/xml/rss/nyt/Upshot.xml',
       'http://feeds.nbcnews.com/nbcnews/public/world',
       'https://feeds.a.dj.com/rss/RSSWorldNews.xml',
@@ -46,7 +47,6 @@ export default class Papers extends React.Component {
       'https://www.theguardian.com/society/health/rss',
       'https://www.dailymail.co.uk/news/index.rss',
       'https://www.dailytelegraph.com.au/news/world/rss',
-      //'https://www.dnaindia.com/feeds/latest.xml',
     ];
     const parsedPapers = [];
     Promise.all(urls.map(url => fetch(url).then(response => response.text())))
