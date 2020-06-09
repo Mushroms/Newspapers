@@ -24,11 +24,29 @@ export default class Papers extends React.Component {
       'http://news.yandex.ru/world.rss',
       'https://news.yandex.ru/health.rss',
       'https://news.yandex.ru/sport.rss',
+      'https://lenta.ru/rss/articles/russia',
+      'https://www.vesti.ru/vesti.rss',
+      'https://aif.ru/rss/society.php',
+      'https://www.radiosvoboda.org/api/zrqiteuuir',
+      'https://rss.nytimes.com/services/xml/rss/nyt/Upshot.xml',
+      'http://feeds.nbcnews.com/nbcnews/public/world',
       'https://feeds.a.dj.com/rss/RSSWorldNews.xml',
       'https://feeds.a.dj.com/rss/WSJcomUSBusiness.xml',
       'https://www.handelsblatt.com/contentexport/feed/wirtschaft',
       'https://www.handelsblatt.com/contentexport/feed/sport',
+      'https://www.ilsole24ore.com/rss/italia--attualita.xml',
+      'https://www.ilsole24ore.com/rss/sport24--calcio.xml',
+      'https://www.ilsole24ore.com/rss/salute--sanita.xml',
+      'https://www.ilsole24ore.com/rss/tecnologia--scienza.xml',
+      'https://www.lefigaro.fr/rss/figaro_actualites.xml',
+      'https://www.lefigaro.fr/rss/figaro_sante.xml',
+      'https://sport24.lefigaro.fr/rssfeeds/sport24-accueil.xml',
+      'https://sport24.lefigaro.fr/rssfeeds/sport24-football.xml',
+      'https://www.theguardian.com/us-news/rss',
+      'https://www.theguardian.com/society/health/rss',
+      'https://www.dailymail.co.uk/news/index.rss',
       'https://www.dailytelegraph.com.au/news/world/rss',
+      //'https://www.dnaindia.com/feeds/latest.xml',
     ];
     const parsedPapers = [];
     Promise.all(urls.map(url => fetch(url).then(response => response.text())))
@@ -104,7 +122,9 @@ export default class Papers extends React.Component {
     return (
       <View style={{backgroundColor: '#6f7d98', flex: 1}}>
         <NetError error={this.state.error} resetError={this._resetError} />
-        <View style={styles.container}>{this.getPapersTitle()}</View>
+        <ScrollView style={{marginTop: 30, marginBottom: 50}}>
+          <View style={styles.container}>{this.getPapersTitle()}</View>
+        </ScrollView>
       </View>
     );
   }
