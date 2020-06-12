@@ -26,7 +26,6 @@ export default class Papers extends React.Component {
       'https://news.yandex.ru/sport.rss',
       'https://lenta.ru/rss/articles/russia',
       'https://www.vesti.ru/vesti.rss',
-      'https://aif.ru/rss/society.php',
       'https://www.radiosvoboda.org/api/zrqiteuuir',
       'https://www.svaboda.org/api/zvgrppeo_qpm',
       'https://rss.nytimes.com/services/xml/rss/nyt/Upshot.xml',
@@ -48,6 +47,7 @@ export default class Papers extends React.Component {
       'https://www.dailymail.co.uk/news/index.rss',
       'https://www.dailytelegraph.com.au/news/world/rss',
     ];
+
     const parsedPapers = [];
     Promise.all(urls.map(url => fetch(url).then(response => response.text())))
       .then(PapersXMLs => {
@@ -66,12 +66,16 @@ export default class Papers extends React.Component {
 
   parseSourceFile(paperXML) {
     const currentState = this.state.rss;
-    parseString(paperXML.replace(/&amp;quot;/g, '"'), (err, result) => {
-      currentState.push(result);
-      this.setState({
-        rss: currentState,
+    try {
+      parseString(paperXML.replace(/&amp;quot;/g, '"'), (err, result) => {
+        currentState.push(result);
+        this.setState({
+          rss: currentState,
+        });
       });
-    });
+    } catch (error) {
+      this.setState({error: true});
+    }
   }
 
   componentDidMount() {
@@ -88,21 +92,27 @@ export default class Papers extends React.Component {
 
     if (!papersList) return;
     const papers = papersList.map((parsPaper, index) => {
-      return (
-        <Fragment key={index}>
-          <View style={styles.separator} />
-          <TouchableOpacity
-            accessibilityRole={'button'}
-            onPress={() =>
-              navigation.navigate('Articles', {
-                articlesList: this.getArticlesList(parsPaper),
-              })
-            }
-            style={styles.linkContainer}>
-            <Text style={styles.link}>{parsPaper.rss.channel[0].title[0]}</Text>
-          </TouchableOpacity>
-        </Fragment>
-      );
+      try {
+        return (
+          <Fragment key={index}>
+            <View style={styles.separator} />
+            <TouchableOpacity
+              accessibilityRole={'button'}
+              onPress={() =>
+                navigation.navigate('Articles', {
+                  articlesList: this.getArticlesList(parsPaper),
+                })
+              }
+              style={styles.linkContainer}>
+              <Text style={styles.link}>
+                {parsPaper.rss.channel[0].title[0]}
+              </Text>
+            </TouchableOpacity>
+          </Fragment>
+        );
+      } catch (error) {
+        //this.setState({error: true});
+      }
     });
     return papers;
   };
