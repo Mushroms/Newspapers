@@ -84,7 +84,7 @@ export default class Papers extends React.Component {
       this.setState({
         spinner: false,
       });
-    }, 3000);
+    }, 2000);
 
     try {
       this.getData();
@@ -97,6 +97,7 @@ export default class Papers extends React.Component {
     const papersList = this.state.rss;
     const navigation = this.props.navigation;
 
+    // eslint-disable-next-line curly
     if (!papersList) return;
     const papers = papersList.map((parsPaper, index) => {
       try {
