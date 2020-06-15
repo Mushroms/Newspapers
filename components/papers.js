@@ -44,7 +44,6 @@ export default class Papers extends React.Component {
       'https://www.lefigaro.fr/rss/figaro_sante.xml',
       'https://sport24.lefigaro.fr/rssfeeds/sport24-accueil.xml',
       'https://sport24.lefigaro.fr/rssfeeds/sport24-football.xml',
-      'https://www.theguardian.com/us-news/rss',
       'https://www.dailymail.co.uk/news/index.rss',
       'https://www.dailytelegraph.com.au/news/world/rss',
     ];
