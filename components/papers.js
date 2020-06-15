@@ -84,7 +84,7 @@ export default class Papers extends React.Component {
       this.setState({
         spinner: false,
       });
-    }, 2000);
+    }, 3000);
 
     try {
       this.getData();
