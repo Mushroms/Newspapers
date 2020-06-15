@@ -9,6 +9,7 @@ import {
 } from 'react-native';
 import {parseString} from 'react-native-xml2js';
 import NetError from './netError';
+import Spinner from 'react-native-loading-spinner-overlay';
 
 export default class Papers extends React.Component {
   constructor(props) {
@@ -16,6 +17,7 @@ export default class Papers extends React.Component {
     this.state = {
       rss: [],
       error: false,
+      spinner: true,
     };
   }
 
@@ -78,6 +80,12 @@ export default class Papers extends React.Component {
   }
 
   componentDidMount() {
+    setInterval(() => {
+      this.setState({
+        spinner: false,
+      });
+    }, 2000);
+
     try {
       this.getData();
     } catch (error) {
@@ -89,6 +97,7 @@ export default class Papers extends React.Component {
     const papersList = this.state.rss;
     const navigation = this.props.navigation;
 
+    // eslint-disable-next-line curly
     if (!papersList) return;
     const papers = papersList.map((parsPaper, index) => {
       try {
@@ -130,6 +139,12 @@ export default class Papers extends React.Component {
   render() {
     return (
       <View style={styles.description}>
+        <Spinner
+          visible={this.state.spinner}
+          textContent={'Loading...'}
+          textStyle={styles.spinnerTextStyle}
+        />
+
         <NetError error={this.state.error} resetError={this._resetError} />
         <ScrollView>
           <View style={styles.container}>{this.getPapersTitle()}</View>
@@ -139,6 +154,9 @@ export default class Papers extends React.Component {
   }
 }
 const styles = StyleSheet.create({
+  spinnerTextStyle: {
+    color: '#FFF',
+  },
   container: {
     marginTop: 90,
     paddingHorizontal: 24,
