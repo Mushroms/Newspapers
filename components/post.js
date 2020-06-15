@@ -7,7 +7,7 @@ function Post(props) {
   const PostObj = item.description;
 
   return (
-    <View style={{backgroundColor: '#5b5b5b', flex: 1}}>
+    <View style={{backgroundColor: '#6f6f6d', flex: 1}}>
       <ScrollView style={{top: '11%'}}>
         <View style={styles.container}>
           <View style={styles.separator} />

@@ -43,7 +43,6 @@ export default class Papers extends React.Component {
       'https://sport24.lefigaro.fr/rssfeeds/sport24-accueil.xml',
       'https://sport24.lefigaro.fr/rssfeeds/sport24-football.xml',
       'https://www.theguardian.com/us-news/rss',
-      'https://www.theguardian.com/society/health/rss',
       'https://www.dailymail.co.uk/news/index.rss',
       'https://www.dailytelegraph.com.au/news/world/rss',
     ];
@@ -143,7 +142,7 @@ const styles = StyleSheet.create({
   container: {
     marginTop: 90,
     paddingHorizontal: 24,
-    backgroundColor: '#5b5b5b',
+    backgroundColor: '#6f6f6d',
   },
   linkContainer: {
     flexWrap: 'wrap',
@@ -151,7 +150,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     paddingVertical: 8,
-    backgroundColor: '#5b5b5b',
+    backgroundColor: '#6f6f6d',
   },
   link: {
     flex: 2,
@@ -163,7 +162,7 @@ const styles = StyleSheet.create({
   },
   description: {
     flex: 1,
-    backgroundColor: '#5b5b5b',
+    backgroundColor: '#6f6f6d',
   },
   separator: {
     backgroundColor: '#F9FBE7',
