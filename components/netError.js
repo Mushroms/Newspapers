@@ -1,12 +1,5 @@
 import React from 'react';
-import {
-  View,
-  Text,
-  StyleSheet,
-  Button,
-  SafeAreaView,
-  TouchableOpacity,
-} from 'react-native';
+import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 import RNRestart from 'react-native-restart';
 
 export default class NetError extends React.Component {
@@ -33,7 +26,6 @@ export default class NetError extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    //flex: 1,
     height: '100%',
     width: '100%',
     marginTop: 90,

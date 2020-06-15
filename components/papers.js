@@ -117,9 +117,7 @@ export default class Papers extends React.Component {
             </TouchableOpacity>
           </Fragment>
         );
-      } catch (error) {
-        //this.setState({error: true});
-      }
+      } catch (error) {}
     });
     return papers;
   };
@@ -143,7 +141,6 @@ export default class Papers extends React.Component {
           textContent={'Loading...'}
           textStyle={styles.spinnerTextStyle}
         />
-
         <NetError error={this.state.error} resetError={this._resetError} />
         <ScrollView>
           <View style={styles.container}>{this.getPapersTitle()}</View>

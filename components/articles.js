@@ -52,7 +52,6 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: '400',
     color: '#F9FBE7',
-    //fontFamily: 'Courier-Bold',
   },
   description: {
     color: '#F9FBE7',
