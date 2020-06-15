@@ -7,26 +7,33 @@ function Post(props) {
   const PostObj = item.description;
 
   return (
-    <View style={{backgroundColor: '#6f7d98', flex: 1}}>
-      <View style={styles.container}>
-        <View style={styles.separator} />
-        <ScrollView>
+    <View style={{backgroundColor: '#5b5b5b', flex: 1}}>
+      <ScrollView style={{top: '11%'}}>
+        <View style={styles.container}>
+          <View style={styles.separator} />
           <Text style={styles.textPost}>{PostObj}</Text>
-        </ScrollView>
-      </View>
+          <View style={styles.separator_2} />
+        </View>
+      </ScrollView>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: 90,
+    width: '100%',
+    marginTop: 0,
     paddingHorizontal: 24,
   },
 
   separator: {
     backgroundColor: '#F9FBE7',
     height: 1,
+  },
+  separator_2: {
+    backgroundColor: '#F9FBE7',
+    height: 1,
+    marginTop: 25,
   },
   textPost: {
     flex: 2,

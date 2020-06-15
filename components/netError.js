@@ -5,7 +5,7 @@ export default class NetError extends React.Component {
   render() {
     if (!this.props.error) return null;
     return (
-      <View style={{backgroundColor: '#6f7d98', flex: 1}}>
+      <View style={{backgroundColor: '#5b5b5b', flex: 1}}>
         <View style={styles.container}>
           <View style={styles.separator} />
           <Text style={styles.link}>Check your internet connection!</Text>
@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
   container: {
     marginTop: 90,
     paddingHorizontal: 24,
-    backgroundColor: '#6f7d98',
+    backgroundColor: '#5b5b5b',
   },
 
   link: {
@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: '400',
     color: '#db196e',
-    backgroundColor: '#6f7d98',
+    backgroundColor: '#5b5b5b',
   },
 
   separator: {

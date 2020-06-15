@@ -130,9 +130,9 @@ export default class Papers extends React.Component {
 
   render() {
     return (
-      <View style={{backgroundColor: '#6f7d98', flex: 1}}>
+      <View style={styles.description}>
         <NetError error={this.state.error} resetError={this._resetError} />
-        <ScrollView style={{marginTop: 30, marginBottom: 50}}>
+        <ScrollView>
           <View style={styles.container}>{this.getPapersTitle()}</View>
         </ScrollView>
       </View>
@@ -143,7 +143,7 @@ const styles = StyleSheet.create({
   container: {
     marginTop: 90,
     paddingHorizontal: 24,
-    backgroundColor: '#6f7d98',
+    backgroundColor: '#5b5b5b',
   },
   linkContainer: {
     flexWrap: 'wrap',
@@ -151,7 +151,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     paddingVertical: 8,
-    backgroundColor: '#6f7d98',
+    backgroundColor: '#5b5b5b',
   },
   link: {
     flex: 2,
@@ -162,12 +162,8 @@ const styles = StyleSheet.create({
     //fontFamily: 'Courier-Bold',
   },
   description: {
-    flex: 3,
-    paddingVertical: 16,
-    fontWeight: '400',
-    fontSize: 18,
-    backgroundColor: '#6f7d98',
-    //fontFamily: 'Courier-Bold',
+    flex: 1,
+    backgroundColor: '#5b5b5b',
   },
   separator: {
     backgroundColor: '#F9FBE7',
