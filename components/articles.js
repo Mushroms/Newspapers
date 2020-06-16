@@ -27,7 +27,7 @@ function Articles(props) {
 
   return (
     <View style={{backgroundColor: '#6f6f6d', flex: 1}}>
-      <ScrollView style={{marginTop: 80, marginBottom: 25}}>
+      <ScrollView style={{marginTop: 80, marginBottom: 2}}>
         <View>{articlesTags}</View>
       </ScrollView>
     </View>
