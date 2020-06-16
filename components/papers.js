@@ -60,7 +60,7 @@ export default class Papers extends React.Component {
         }
       })
       .catch(error => {
-        this.setState({error: true});
+        this.setState({error: true, spinner: false});
       });
   }
 
@@ -71,6 +71,7 @@ export default class Papers extends React.Component {
         currentState.push(result);
         this.setState({
           rss: currentState,
+          spinner: false,
         });
       });
     } catch (error) {
@@ -79,12 +80,6 @@ export default class Papers extends React.Component {
   }
 
   componentDidMount() {
-    setInterval(() => {
-      this.setState({
-        spinner: false,
-      });
-    }, 3000);
-
     try {
       this.getData();
     } catch (error) {
