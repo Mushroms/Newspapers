@@ -138,7 +138,7 @@ export default class Papers extends React.Component {
           textStyle={styles.spinnerTextStyle}
         />
         <NetError error={this.state.error} resetError={this._resetError} />
-        <ScrollView>
+        <ScrollView style={{marginTop: '15%'}}>
           <View style={styles.container}>{this.getPapersTitle()}</View>
         </ScrollView>
       </View>
@@ -150,7 +150,7 @@ const styles = StyleSheet.create({
     color: '#FFF',
   },
   container: {
-    marginTop: 90,
+    marginTop: 5,
     paddingHorizontal: 24,
     backgroundColor: '#6f6f6d',
   },
@@ -172,6 +172,7 @@ const styles = StyleSheet.create({
   },
   description: {
     flex: 1,
+    height: '90%',
     backgroundColor: '#6f6f6d',
   },
   separator: {
