@@ -36,8 +36,7 @@ function Articles(props) {
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: 10,
-    marginBottom: 0,
+    flex: 1,
     paddingHorizontal: 24,
     backgroundColor: '#6f6f6d',
   },
