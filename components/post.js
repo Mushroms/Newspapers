@@ -22,7 +22,9 @@ function Post(props) {
 const styles = StyleSheet.create({
   container: {
     width: '100%',
-    marginTop: 0,
+    //height: '100%',
+    //marginTop: '20%',
+    marginBottom: 80,
     paddingHorizontal: 24,
   },
 
@@ -33,7 +35,7 @@ const styles = StyleSheet.create({
   separator_2: {
     backgroundColor: '#F9FBE7',
     height: 1,
-    marginTop: 25,
+    marginTop: 20,
   },
   textPost: {
     flex: 2,

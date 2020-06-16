@@ -44,7 +44,6 @@ export default class Papers extends React.Component {
       'https://www.lefigaro.fr/rss/figaro_sante.xml',
       'https://sport24.lefigaro.fr/rssfeeds/sport24-accueil.xml',
       'https://sport24.lefigaro.fr/rssfeeds/sport24-football.xml',
-      'https://www.theguardian.com/us-news/rss',
       'https://www.dailymail.co.uk/news/index.rss',
       'https://www.dailytelegraph.com.au/news/world/rss',
     ];
@@ -84,7 +83,7 @@ export default class Papers extends React.Component {
       this.setState({
         spinner: false,
       });
-    }, 2000);
+    }, 3000);
 
     try {
       this.getData();
@@ -118,9 +117,7 @@ export default class Papers extends React.Component {
             </TouchableOpacity>
           </Fragment>
         );
-      } catch (error) {
-        //this.setState({error: true});
-      }
+      } catch (error) {}
     });
     return papers;
   };
@@ -144,7 +141,6 @@ export default class Papers extends React.Component {
           textContent={'Loading...'}
           textStyle={styles.spinnerTextStyle}
         />
-
         <NetError error={this.state.error} resetError={this._resetError} />
         <ScrollView>
           <View style={styles.container}>{this.getPapersTitle()}</View>
