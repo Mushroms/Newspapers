@@ -27,7 +27,7 @@ function Articles(props) {
 
   return (
     <View style={{backgroundColor: '#6f6f6d', flex: 1}}>
-      <ScrollView style={{marginTop: 80, marginBottom: 0}}>
+      <ScrollView style={{marginTop: 80, marginBottom: 25}}>
         <View>{articlesTags}</View>
       </ScrollView>
     </View>
@@ -37,7 +37,9 @@ function Articles(props) {
 const styles = StyleSheet.create({
   container: {
     marginTop: 10,
+    marginBottom: 0,
     paddingHorizontal: 24,
+    backgroundColor: '#6f6f6d',
   },
   linkContainer: {
     flexWrap: 'wrap',
