@@ -1,10 +1,13 @@
 import {View, Text, StyleSheet, ScrollView} from 'react-native';
 import React from 'react';
+import Hyperlink from 'react-native-hyperlink';
 
 function Post(props) {
   const {route} = props;
   const {item} = route.params;
   const PostObj = item.description;
+  const LinkObj = item.link;
+  //console.log(item);
 
   return (
     <View style={{backgroundColor: '#6f6f6d', flex: 1}}>
@@ -13,6 +16,10 @@ function Post(props) {
           <View style={styles.separator} />
           <Text style={styles.textPost}>{PostObj}</Text>
           <View style={styles.separator_2} />
+
+          <Hyperlink>
+            <Text>{LinkObj}</Text>
+          </Hyperlink>
         </View>
       </ScrollView>
     </View>

@@ -123,6 +123,7 @@ export default class Papers extends React.Component {
       return {
         title: article.title[0],
         description: article.description[0],
+        link: article.link[0],
       };
     });
     return articlesList;
