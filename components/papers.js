@@ -60,7 +60,7 @@ export default class Papers extends React.Component {
         }
       })
       .catch(error => {
-        this.setState({error: true});
+        this.setState({error: true, spinner: false});
       });
   }
 
@@ -71,6 +71,7 @@ export default class Papers extends React.Component {
         currentState.push(result);
         this.setState({
           rss: currentState,
+          spinner: false,
         });
       });
     } catch (error) {
@@ -79,12 +80,6 @@ export default class Papers extends React.Component {
   }
 
   componentDidMount() {
-    setInterval(() => {
-      this.setState({
-        spinner: false,
-      });
-    }, 3000);
-
     try {
       this.getData();
     } catch (error) {
@@ -128,6 +123,7 @@ export default class Papers extends React.Component {
       return {
         title: article.title[0],
         description: article.description[0],
+        link: article.link[0],
       };
     });
     return articlesList;
@@ -142,7 +138,7 @@ export default class Papers extends React.Component {
           textStyle={styles.spinnerTextStyle}
         />
         <NetError error={this.state.error} resetError={this._resetError} />
-        <ScrollView>
+        <ScrollView style={{marginTop: '15%'}}>
           <View style={styles.container}>{this.getPapersTitle()}</View>
         </ScrollView>
       </View>
@@ -154,7 +150,7 @@ const styles = StyleSheet.create({
     color: '#FFF',
   },
   container: {
-    marginTop: 90,
+    marginTop: 5,
     paddingHorizontal: 24,
     backgroundColor: '#6f6f6d',
   },
@@ -176,6 +172,7 @@ const styles = StyleSheet.create({
   },
   description: {
     flex: 1,
+    height: '90%',
     backgroundColor: '#6f6f6d',
   },
   separator: {

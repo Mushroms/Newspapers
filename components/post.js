@@ -1,18 +1,29 @@
-import {View, Text, StyleSheet, ScrollView} from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  ScrollView,
+  Linking,
+  TouchableOpacity,
+} from 'react-native';
 import React from 'react';
 
 function Post(props) {
   const {route} = props;
   const {item} = route.params;
   const PostObj = item.description;
+  const url = item.link;
 
   return (
     <View style={{backgroundColor: '#6f6f6d', flex: 1}}>
-      <ScrollView style={{top: '11%'}}>
+      <ScrollView style={{top: '7%'}}>
         <View style={styles.container}>
           <View style={styles.separator} />
           <Text style={styles.textPost}>{PostObj}</Text>
           <View style={styles.separator_2} />
+          <TouchableOpacity onPress={() => Linking.openURL(url)}>
+            <Text style={styles.Url_link}>Read more</Text>
+          </TouchableOpacity>
         </View>
       </ScrollView>
     </View>
@@ -21,10 +32,7 @@ function Post(props) {
 
 const styles = StyleSheet.create({
   container: {
-    width: '100%',
-    //height: '100%',
-    //marginTop: '20%',
-    marginBottom: 80,
+    marginBottom: '30%',
     paddingHorizontal: 24,
   },
 
@@ -45,6 +53,12 @@ const styles = StyleSheet.create({
     fontWeight: '400',
     color: '#F9FBE7',
     //fontFamily: 'Courier-Bold',
+  },
+  Url_link: {
+    flex: 1,
+    color: '#a5c7f3',
+    marginTop: 15,
+    fontSize: 17,
   },
 });
 
