@@ -6,6 +6,7 @@ import Articles from './components/articles';
 import Post from './components/post';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
+//import SplashScreen from 'react-native-splash-screen';
 
 const Stack = createStackNavigator();
 

@@ -40,6 +40,12 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12,
     backgroundColor: '#6f6f6d',
   },
+
+  separator: {
+    backgroundColor: '#F9FBE7',
+    height: 1,
+  },
+
   linkContainer: {
     flexWrap: 'wrap',
     flexDirection: 'row',
@@ -47,23 +53,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingVertical: 8,
   },
-  link: {
-    flex: 2,
-    marginTop: 20,
-    fontSize: 20,
-    fontWeight: '400',
-    color: '#F9FBE7',
-  },
+
   description: {
     color: '#F9FBE7',
     paddingVertical: 10,
     fontWeight: '400',
     fontSize: 18,
     //fontFamily: 'Courier-Bold',
-  },
-  separator: {
-    backgroundColor: '#F9FBE7',
-    height: 1,
   },
 });
 

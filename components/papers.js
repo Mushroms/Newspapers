@@ -10,6 +10,7 @@ import {
 import {parseString} from 'react-native-xml2js';
 import NetError from './netError';
 import Spinner from 'react-native-loading-spinner-overlay';
+import SplashScreen from 'react-native-splash-screen';
 
 export default class Papers extends React.Component {
   constructor(props) {
@@ -105,8 +106,8 @@ export default class Papers extends React.Component {
                   articlesList: this.getArticlesList(parsPaper),
                 })
               }
-              style={styles.linkContainer}>
-              <Text style={styles.link}>
+              style={styles.textContainer}>
+              <Text style={styles.text}>
                 {parsPaper.rss.channel[0].title[0]}
               </Text>
             </TouchableOpacity>
@@ -130,8 +131,9 @@ export default class Papers extends React.Component {
   };
 
   render() {
+    SplashScreen.hide();
     return (
-      <View style={styles.description}>
+      <View style={styles.container}>
         <Spinner
           visible={this.state.spinner}
           textContent={'Loading...'}
@@ -139,22 +141,19 @@ export default class Papers extends React.Component {
         />
         <NetError error={this.state.error} resetError={this._resetError} />
         <ScrollView style={{marginTop: '15%'}}>
-          <View style={styles.container}>{this.getPapersTitle()}</View>
+          <View style={styles.description}>{this.getPapersTitle()}</View>
         </ScrollView>
       </View>
     );
   }
 }
 const styles = StyleSheet.create({
-  spinnerTextStyle: {
-    color: '#FFF',
+  separator: {
+    backgroundColor: '#F9FBE7',
+    height: 1,
   },
-  container: {
-    marginTop: 5,
-    paddingHorizontal: 24,
-    backgroundColor: '#6f6f6d',
-  },
-  linkContainer: {
+
+  textContainer: {
     flexWrap: 'wrap',
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -162,7 +161,8 @@ const styles = StyleSheet.create({
     paddingVertical: 8,
     backgroundColor: '#6f6f6d',
   },
-  link: {
+
+  text: {
     flex: 2,
     marginTop: 20,
     fontSize: 18,
@@ -170,13 +170,20 @@ const styles = StyleSheet.create({
     color: '#F9FBE7',
     //fontFamily: 'Courier-Bold',
   },
-  description: {
+
+  container: {
     flex: 1,
     height: '90%',
     backgroundColor: '#6f6f6d',
   },
-  separator: {
-    backgroundColor: '#F9FBE7',
-    height: 1,
+
+  spinnerTextStyle: {
+    color: '#FFF',
+  },
+
+  description: {
+    marginTop: 5,
+    paddingHorizontal: 24,
+    backgroundColor: '#6f6f6d',
   },
 });
