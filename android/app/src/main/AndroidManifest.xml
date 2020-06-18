@@ -2,6 +2,7 @@
   package="com.newspapers">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="ANDROID.PERMISSION.ACCESS_NETWORK_STATE"/>
 
     <application
       android:name=".MainApplication"

@@ -24,7 +24,7 @@ export default class Papers extends React.Component {
 
   getData() {
     const urls = [
-      'http://news.yandex.ru/world.rss',
+      'https://news.yandex.ru/world.rss',
       'https://news.yandex.ru/health.rss',
       'https://news.yandex.ru/sport.rss',
       'https://lenta.ru/rss/articles/russia',
@@ -32,7 +32,7 @@ export default class Papers extends React.Component {
       'https://www.radiosvoboda.org/api/zrqiteuuir',
       'https://www.svaboda.org/api/zvgrppeo_qpm',
       'https://rss.nytimes.com/services/xml/rss/nyt/Upshot.xml',
-      'http://feeds.nbcnews.com/nbcnews/public/world',
+      'https://feeds.nbcnews.com/nbcnews/public/world',
       'https://feeds.a.dj.com/rss/RSSWorldNews.xml',
       'https://feeds.a.dj.com/rss/WSJcomUSBusiness.xml',
       'https://www.handelsblatt.com/contentexport/feed/wirtschaft',
