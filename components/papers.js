@@ -24,6 +24,7 @@ export default class Papers extends React.Component {
 
   getData() {
     const urls = [
+      'https://meduza.io/rss/podcasts/meduza-v-kurse',
       'http://news.yandex.ru/world.rss',
       'https://news.yandex.ru/health.rss',
       'https://news.yandex.ru/sport.rss',
@@ -156,16 +157,27 @@ const styles = StyleSheet.create({
   textContainer: {
     flexWrap: 'wrap',
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    justifyContent: 'space-around',
     alignItems: 'center',
     paddingVertical: 8,
     backgroundColor: '#6f6f6d',
   },
 
   text: {
-    flex: 2,
+    flex: 1,
     marginTop: 20,
     fontSize: 18,
+    fontWeight: '400',
+    color: '#F9FBE7',
+    //fontFamily: 'Courier-Bold',
+  },
+
+  text_2: {
+    flex: 1,
+    //flexDirection: 'column',
+    bottom: 10,
+    marginTop: 12,
+    fontSize: 12,
     fontWeight: '400',
     color: '#F9FBE7',
     //fontFamily: 'Courier-Bold',
