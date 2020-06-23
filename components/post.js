@@ -16,7 +16,7 @@ function Post(props) {
 
   return (
     <View style={{backgroundColor: '#6f6f6d', flex: 1}}>
-      <ScrollView style={{top: '7%'}}>
+      <ScrollView style={{top: '11%'}}>
         <View style={styles.container}>
           <View style={styles.separator} />
           <Text style={styles.textPost}>{PostObj}</Text>
