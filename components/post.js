@@ -33,7 +33,8 @@ function Post(props) {
 const styles = StyleSheet.create({
   container: {
     marginBottom: '30%',
-    paddingHorizontal: 24,
+    paddingHorizontal: 28,
+    paddingVertical: 20,
   },
 
   separator: {

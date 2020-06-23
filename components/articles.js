@@ -37,7 +37,8 @@ function Articles(props) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingHorizontal: 12,
+    paddingHorizontal: 10,
+
     backgroundColor: '#6f6f6d',
   },
 
@@ -51,12 +52,12 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    paddingVertical: 8,
+    paddingVertical: 25,
   },
 
   description: {
     color: '#F9FBE7',
-    paddingVertical: 10,
+    paddingVertical: 1,
     fontWeight: '400',
     fontSize: 18,
     //fontFamily: 'Courier-Bold',
