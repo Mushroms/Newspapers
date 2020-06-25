@@ -10,7 +10,7 @@ import {
 import {parseString} from 'react-native-xml2js';
 import NetError from './netError';
 import Spinner from 'react-native-loading-spinner-overlay';
-import SplashScreen from 'react-native-splash-screen';
+//import SplashScreen from 'react-native-splash-screen';
 
 export default class Papers extends React.Component {
   constructor(props) {
@@ -132,7 +132,7 @@ export default class Papers extends React.Component {
   };
 
   render() {
-    SplashScreen.hide();
+    //SplashScreen.hide();
     return (
       <View style={styles.container}>
         <Spinner
