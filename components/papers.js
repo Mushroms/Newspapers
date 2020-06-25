@@ -141,7 +141,7 @@ export default class Papers extends React.Component {
           textStyle={styles.spinnerTextStyle}
         />
         <NetError error={this.state.error} resetError={this._resetError} />
-        <ScrollView style={{marginTop: '20%'}}>
+        <ScrollView style={{marginTop: '22%'}}>
           <View style={styles.description}>{this.getPapersTitle()}</View>
         </ScrollView>
       </View>

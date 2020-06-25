@@ -26,10 +26,23 @@ function Articles(props) {
   });
 
   return (
-    <View style={{height: '100%', backgroundColor: '#6f6f6d'}}>
-      <ScrollView style={{marginTop: '20%'}}>
-        <View style={styles.container}>{articlesTags}</View>
-      </ScrollView>
+    <View
+      style={{
+        height: '100%',
+        backgroundColor: '#6f6f6d',
+        flex: 1,
+      }}>
+      <View
+        style={{
+          //flex: 1,
+          height: '100%',
+          backgroundColor: '#6f6f6d',
+          marginTop: '2%',
+        }}>
+        <ScrollView style={{marginTop: '22%'}}>
+          <View style={styles.container}>{articlesTags}</View>
+        </ScrollView>
+      </View>
     </View>
   );
 }
