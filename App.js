@@ -15,7 +15,7 @@ export class MyStack extends Component {
     return (
       <Stack.Navigator>
         <Stack.Screen
-          name="NewsPapers"
+          name="News Papers"
           component={Papers}
           options={{
             headerStyle: {
