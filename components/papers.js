@@ -10,7 +10,7 @@ import {
 import {parseString} from 'react-native-xml2js';
 import NetError from './netError';
 import Spinner from 'react-native-loading-spinner-overlay';
-//import SplashScreen from 'react-native-splash-screen';
+import getArticlesList from './FetchHelper/helper';
 
 export default class Papers extends React.Component {
   constructor(props) {
@@ -104,7 +104,7 @@ export default class Papers extends React.Component {
               accessibilityRole={'button'}
               onPress={() =>
                 navigation.navigate('Articles', {
-                  articlesList: this.getArticlesList(parsPaper),
+                  articlesList: getArticlesList(parsPaper),
                 })
               }
               style={styles.textContainer}>
@@ -119,20 +119,7 @@ export default class Papers extends React.Component {
     return papers;
   };
 
-  getArticlesList = parsPaper => {
-    if (!parsPaper) return;
-    const articlesList = parsPaper.rss.channel[0].item.map(article => {
-      return {
-        title: article.title[0],
-        description: article.description[0],
-        link: article.link[0],
-      };
-    });
-    return articlesList;
-  };
-
   render() {
-    //SplashScreen.hide();
     return (
       <View style={styles.container}>
         <Spinner
