@@ -10,7 +10,7 @@ import {
 import {parseString} from 'react-native-xml2js';
 import NetError from './netError';
 import Spinner from 'react-native-loading-spinner-overlay';
-import getArticlesList from './FetchHelper/helper';
+import HelperArticleList from './FetchHelper/helper';
 
 export default class Papers extends React.Component {
   constructor(props) {
@@ -104,7 +104,7 @@ export default class Papers extends React.Component {
               accessibilityRole={'button'}
               onPress={() =>
                 navigation.navigate('Articles', {
-                  articlesList: getArticlesList(parsPaper),
+                  articlesList: HelperArticleList.getArticlesList(parsPaper),
                 })
               }
               style={styles.textContainer}>
