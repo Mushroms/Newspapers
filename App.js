@@ -15,11 +15,12 @@ export class MyStack extends Component {
     return (
       <Stack.Navigator>
         <Stack.Screen
-          name="NewsPapers"
+          name="News Papers"
           component={Papers}
+          color="#5b5b5b"
           options={{
             headerStyle: {
-              // backgroundColor: '#6f7d98',
+              backgroundColor: '#5b5b5b',
             },
             headerTransparent: true,
             headerTintColor: '#a5c7f3',
@@ -30,23 +31,23 @@ export class MyStack extends Component {
         <Stack.Screen
           name="Articles"
           component={Articles}
-          color="#F9FBE7"
-          backgroundColor="#6f7d98"
+          color="#5b5b5b"
+          backgroundColor="#5b5b5b"
           options={{
             headerTransparent: true,
             headerTintColor: '#a5c7f3',
-            headerBackground: () => <View tint="#F9FBE7" intensity={100} />,
+            headerBackground: () => <View tint="#5b5b5b" intensity={100} />,
           }}
         />
         <Stack.Screen
           name="Post"
           component={Post}
-          color="#F9FBE7"
-          backgroundColor="#6f7d98"
+          color="#5b5b5b"
+          backgroundColor="#5b5b5b"
           options={{
             headerTransparent: true,
             headerTintColor: '#a5c7f3',
-            headerBackground: () => <View tint="#F9FBE7" intensity={100} />,
+            headerBackground: () => <View tint="#5b5b5b" intensity={100} />,
           }}
         />
       </Stack.Navigator>

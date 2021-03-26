@@ -10,7 +10,7 @@ import {
 import {parseString} from 'react-native-xml2js';
 import NetError from './netError';
 import Spinner from 'react-native-loading-spinner-overlay';
-import SplashScreen from 'react-native-splash-screen';
+import HelperArticleList from './FetchHelper/helper';
 
 export default class Papers extends React.Component {
   constructor(props) {
@@ -24,7 +24,6 @@ export default class Papers extends React.Component {
 
   getData() {
     const urls = [
-      'https://meduza.io/rss/podcasts/meduza-v-kurse',
       'http://news.yandex.ru/world.rss',
       'https://news.yandex.ru/health.rss',
       'https://news.yandex.ru/sport.rss',
@@ -104,7 +103,7 @@ export default class Papers extends React.Component {
               accessibilityRole={'button'}
               onPress={() =>
                 navigation.navigate('Articles', {
-                  articlesList: this.getArticlesList(parsPaper),
+                  articlesList: HelperArticleList.getArticlesList(parsPaper),
                 })
               }
               style={styles.textContainer}>
@@ -119,20 +118,7 @@ export default class Papers extends React.Component {
     return papers;
   };
 
-  getArticlesList = parsPaper => {
-    if (!parsPaper) return;
-    const articlesList = parsPaper.rss.channel[0].item.map(article => {
-      return {
-        title: article.title[0],
-        description: article.description[0],
-        link: article.link[0],
-      };
-    });
-    return articlesList;
-  };
-
   render() {
-    SplashScreen.hide();
     return (
       <View style={styles.container}>
         <Spinner
@@ -141,7 +127,7 @@ export default class Papers extends React.Component {
           textStyle={styles.spinnerTextStyle}
         />
         <NetError error={this.state.error} resetError={this._resetError} />
-        <ScrollView style={{marginTop: '15%'}}>
+        <ScrollView style={{marginTop: '22%'}}>
           <View style={styles.description}>{this.getPapersTitle()}</View>
         </ScrollView>
       </View>
@@ -172,20 +158,9 @@ const styles = StyleSheet.create({
     //fontFamily: 'Courier-Bold',
   },
 
-  text_2: {
-    flex: 1,
-    //flexDirection: 'column',
-    bottom: 10,
-    marginTop: 12,
-    fontSize: 12,
-    fontWeight: '400',
-    color: '#F9FBE7',
-    //fontFamily: 'Courier-Bold',
-  },
-
   container: {
     flex: 1,
-    height: '90%',
+    height: '60%',
     backgroundColor: '#6f6f6d',
   },
 
