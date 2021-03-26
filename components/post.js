@@ -8,7 +8,7 @@ import {
 } from 'react-native';
 import React from 'react';
 
-const Post = React.memo(function Post(props) {
+function Post(props) {
   const {route} = props;
   const {item} = route.params;
   const PostObj = item.description;
@@ -28,7 +28,7 @@ const Post = React.memo(function Post(props) {
       </ScrollView>
     </View>
   );
-});
+}
 
 const styles = StyleSheet.create({
   container: {

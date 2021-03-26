@@ -24,7 +24,6 @@ export default class Papers extends React.Component {
 
   getData() {
     const urls = [
-      'https://meduza.io/rss/podcasts/meduza-v-kurse',
       'http://news.yandex.ru/world.rss',
       'https://news.yandex.ru/health.rss',
       'https://news.yandex.ru/sport.rss',

@@ -8,7 +8,7 @@ import {
   ScrollView,
 } from 'react-native';
 
-const Articles = React.memo(function Articles(props) {
+function Articles(props) {
   const {route, navigation} = props;
   const {articlesList} = route.params;
   const articlesTags = articlesList.map((article, index) => {
@@ -34,7 +34,6 @@ const Articles = React.memo(function Articles(props) {
       }}>
       <View
         style={{
-          //flex: 1,
           height: '100%',
           backgroundColor: '#6f6f6d',
           marginTop: '2%',
@@ -45,7 +44,7 @@ const Articles = React.memo(function Articles(props) {
       </View>
     </View>
   );
-});
+}
 
 const styles = StyleSheet.create({
   container: {
