@@ -24,7 +24,6 @@ export default class Papers extends React.Component {
 
   getData() {
     const urls = [
-      'https://meduza.io/rss/podcasts/meduza-v-kurse',
       'http://news.yandex.ru/world.rss',
       'https://news.yandex.ru/health.rss',
       'https://news.yandex.ru/sport.rss',
@@ -121,6 +120,7 @@ export default class Papers extends React.Component {
 
   getArticlesList = parsPaper => {
     if (!parsPaper) return;
+
     const articlesList = parsPaper.rss.channel[0].item.map(article => {
       return {
         title: article.title[0],
@@ -148,6 +148,7 @@ export default class Papers extends React.Component {
     );
   }
 }
+
 const styles = StyleSheet.create({
   separator: {
     backgroundColor: '#F9FBE7',

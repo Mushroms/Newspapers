@@ -60,7 +60,6 @@ const styles = StyleSheet.create({
     paddingVertical: 1,
     fontWeight: '400',
     fontSize: 18,
-    //fontFamily: 'Courier-Bold',
   },
 });
 
